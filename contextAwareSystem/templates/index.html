@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<title>Styles</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+.myLink {display: none}
+</style>
+<body class="w3-light-grey">
+
+<!-- Navigation Bar -->
+<div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+  <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-map-marker w3-margin-right"></i>Styles</b></a>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+  <img class="w3-image" src="https://www.levi.com/wp-content/uploads/2018/11/Header.jpg" alt="London" width="1500" height="700">
+  <div class="w3-display-middle" style="width:65%">
+    <div class="w3-bar w3-black">
+      <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Recommendation');"><i class="fa fa-plane w3-margin-right"></i>Recommendation</button>
+   
+    </div>
+
+    <!-- Tabs -->
+    <div id="Recommendation" class="w3-container w3-white w3-padding-16 myLink">
+      <h3>Top 5 Picks</h3>
+      <p><button class="w3-button w3-dark-grey">Search</button></p>
+    </div>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px;">
+
+  <!-- Trending -->
+  <div class="w3-container w3-margin-top">
+    <h3>Trending</h3>
+  </div>
+  <div class="w3-row-padding w3-text-white w3-large">
+    <div class="w3-half w3-margin-bottom">
+      <div class="w3-display-container">
+        <img src="https://img.ltwebstatic.com/images2_pi/2019/09/04/15675790273188315823_thumbnail_600x799.jpg" alt="Cinque Terre" style="width:100%">
+        <span class="w3-display-bottomleft w3-padding"></span>
+      </div>
+    </div>
+    <div class="w3-half">
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSFnRGyBV0KU08Cd7lvhQhpJgJpvIyX5L0RvN_-xmtPn6G-CvPDcyTUVUKQM6RgUxRfRFIMa99z6w&usqp=CAc" alt="New York" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding"></span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_2011000/ff_2011060_full.jpg&w=600" alt="San Francisco" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding">o</span>
+          </div>
+        </div>
+      </div>
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="https://ae01.alicdn.com/kf/HTB1xwYGJA9WBuNjSspeq6yz5VXar/2020-New-Fashion-Men-Biker-Jeans-Ripped-Denim-Slim-Fit-Jean-Pants-Crease-Designer-Hip-Hop.jpg_q50.jpg" alt="Pisa" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding"></span>
+          </div>
+        </div>
+        <div class="w3-half w3-margin-bottom">
+          <div class="w3-display-container">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71sK-iuyFmL._AC_UL1500_.jpg" alt="Paris" style="width:100%">
+            <span class="w3-display-bottomleft w3-padding"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Contact -->
+  <div class="w3-container">
+    <h2>Contact</h2>
+    <p>Let us pick your next outfit!</p>
+    <i class="fa fa-map-marker" style="width:30px"></i> Toronto, CA<br>
+    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p><button class="w3-button w3-black w3-padding-large" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+
+<script>
+// Tabs
+function openLink(evt, linkName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("myLink");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(linkName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+
+// Click on the first tablink on load
+document.getElementsByClassName("tablink")[0].click();
+</script>
+
+</body>
+</html>
