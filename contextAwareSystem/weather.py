@@ -16,4 +16,4 @@ with open('res.json', 'w') as f:
     json.dump(data, f)
 
     # paul fix precipitation
-    #common paul get it togethers
+    #common paul get it together asdfkasd;lfkjasdf
