@@ -6,11 +6,16 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="{{url_for('static', filename='index.js')}}"></script>
+<script src="{{url_for('static', filename='location.js')}}"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcugsAc7f-v7psP5zWudddAUQvGqi1dS0"></script>
+
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
-.myLink {display: none}
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+  .myLink {display: none}
 </style>
-<body class="w3-light-grey">
+<body onload="initialize()" class="w3-light-grey">
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
@@ -100,9 +105,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- End page content -->
 </div>
 
-
-<script src="{{url_for('static', filename='index.js')}}"></script>
-<script src="{{url_for('static', filename='location.js')}}"></script>
 
 </body>
 </html>
