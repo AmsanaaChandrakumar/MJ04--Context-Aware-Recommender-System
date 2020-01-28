@@ -1,5 +1,6 @@
 var geocoder;
 
+initialize()
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
 } 
