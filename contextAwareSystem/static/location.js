@@ -33,14 +33,31 @@ var latlng = new google.maps.LatLng(lat, lng);
       for (var i=0; i<results[0].address_components.length; i++) {
         for (var b=0;b<results[0].address_components[i].types.length;b++) {
           if (results[0].address_components[i].types[b] == "locality") {
-              //this is the object you are looking for
-              city= results[0].address_components[i];
-              break;
+            city= results[0].address_components[i];
+            break;
           }
         }
       }
       //city name
       document.getElementById("location").innerHTML = "Trending in " + city.long_name;
+
+      fetch('/cityWeather', {
+        method: 'POST',
+        body: JSON.stringify({
+          "city": city.long_name
+        })
+      }).then(function (response) {
+        return response.text();
+      }).then(function (text) {
+        var weatherData = JSON.parse(text)
+        console.log('Temperature: ');
+        console.log(weatherData.main.temp);
+        console.log('Wind Speed: ');
+        console.log(weatherData.wind.speed);
+        console.log('Description: ');
+        console.log(weatherData.weather[0].description);
+      });
+
       } else {
         alert("No results found");
       }

@@ -14,6 +14,3 @@ print('Wind Speed: {}'.format(wind_speed))
 print('Precipitation: {}'.format(precipitation))
 with open('res.json', 'w') as f:
     json.dump(data, f)
-
-    # paul fix precipitation
-    #common paul get it together asdfkasd;lfkjasdf
