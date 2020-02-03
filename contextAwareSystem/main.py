@@ -11,7 +11,7 @@ def index():
 
 @app.route('/hello', methods=['GET', 'POST'])
 def hello():
-	# POST request: goes from broweser to flask
+	# POST request: goes from browser to flask
     if request.method == 'POST':
     	print('Incoming..')
     	jsonData = request.get_json(force=True)
