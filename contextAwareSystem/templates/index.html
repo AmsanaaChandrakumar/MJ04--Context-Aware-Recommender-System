@@ -6,9 +6,15 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcugsAc7f-v7psP5zWudddAUQvGqi1dS0"></script>
+<script src="{{url_for('static', filename='index.js')}}"></script>
+<script src="{{url_for('static', filename='location.js')}}"></script>
+<script src="{{url_for('static', filename='sendData.js')}}"></script>
+
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
-.myLink {display: none}
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+  .myLink {display: none}
 </style>
 <body class="w3-light-grey">
 
@@ -41,7 +47,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
   <!-- Trending -->
   <div class="w3-container w3-margin-top">
-    <h3>Trending</h3>
+    <h3 name="location" id="location"></h3>
   </div>
   <div class="w3-row-padding w3-text-white w3-large">
     <div class="w3-half w3-margin-bottom">
@@ -100,26 +106,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- End page content -->
 </div>
 
-
-<script>
-// Tabs
-function openLink(evt, linkName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("myLink");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(linkName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
-
-// Click on the first tablink on load
-document.getElementsByClassName("tablink")[0].click();
-</script>
 
 </body>
 </html>
