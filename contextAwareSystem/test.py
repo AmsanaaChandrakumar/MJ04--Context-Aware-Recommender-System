@@ -28,6 +28,7 @@ for i in range(1,11):
     try:
         response = requests.get(url,proxies={"http": proxy, "https": proxy})
         print(response.json())
+        break
     except:
         #Most free proxies will often get connection errors. You will have retry the entire request using another proxy to work. 
         #We will just skip retries as its beyond the scope of this tutorial and we are only downloading a single url 
