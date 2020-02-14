@@ -5,7 +5,7 @@ import re
 import urllib
 
 # Set the URL you want to scrape from
-URL = 'https://www.zara.com/ca/en/man-jackets-l640.html?v1=1445065'  # men jackets from Zara
+URL = 'https://www.zara.com/ca/en/man-jeans-l659.html?v1=1445083'  # men jeans from Zara
 
 proxies = {
     "http": 'http://"58.84.164.230:53281'
