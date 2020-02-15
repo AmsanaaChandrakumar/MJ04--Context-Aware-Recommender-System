@@ -2,6 +2,7 @@ import requests
 import time
 from bs4 import BeautifulSoup
 import re
+import json
 import urllib
 
 # Set the URL you want to scrape from
@@ -21,6 +22,7 @@ except:
 soup = BeautifulSoup(page.text, 'html.parser')
 
 # To download the whole data set,  do a for loop through all a tags
+constJSON=[{"store_name":"zara", "clothing":[]}]
 for i in range(len(soup.find_all('div', class_='product-info _product-info'))):  # 'a' tags are for items
 
     if URL.replace('https://www.zara.com/ca/en', '').startswith("/woman") is True:
@@ -55,12 +57,34 @@ for i in range(len(soup.find_all('div', class_='product-info _product-info'))): 
     product_img_link = soup2.find_all('meta', attrs={'property': 'og:image'})[j]['content']
     ++j
 
-    print("\nproduct ID:") + str(i)
-    print("product gender: ") + product_gender
-    print ("product name: ") + product_name
-    #print ("product price_parse: ") + str(product_price_parse) #this is the main tag for prices, it shows the price whether is on sale or not, uncomment to check if 'product_price' is correct
-    print ("product marked-down: ") + marked_down
-    print ("product price: ") + product_price + " CAD"
-    print ("product link: ") + product_link
-    print ("product imgage link: https://") + (product_img_link.replace('//','')) #removes the first '//' from image link
+    # print("\nproduct ID:") + str(i)
+    # print("product gender: ") + product_gender
+    # print ("product name: ") + product_name
+    # #print ("product price_parse: ") + str(product_price_parse) #this is the main tag for prices, it shows the price whether is on sale or not, uncomment to check if 'product_price' is correct
+    # print ("product marked-down: ") + marked_down
+    # print ("product price: ") + product_price + " CAD"
+    # print ("product link: ") + product_link
+    # print ("product imgage link: https://") + (product_img_link.replace('//','')) #removes the first '//' from image link
+
+    dataDict = {
+        "product_id":str(i),
+        "product_gender":product_gender,
+        "product_name":product_name,
+        "product_price":product_price,
+        "product_link":product_link,
+        "product_img":(product_img_link.replace('//',''))
+    }
+
+    constJSON.append(dataDict)
+    counter = 0
+    counter += 1
+    # constJSON[counter]["clothing"].append({constJSON})
     time.sleep(1.5)  # pause the code for 1.5 sec, so we dont get blocked for spamming
+
+with open("zara_men_blazers.json", "w") as f:
+    print(json.dumps(constJSON))
+    json.dump(constJSON, f)
+
+
+
+
