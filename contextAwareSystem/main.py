@@ -13,10 +13,10 @@ def index():
 def hello():
 	# POST request: goes from browser to flask
     if request.method == 'POST':
-            print('Incoming..')
-            jsonData = request.get_json(force=True)
-            print(jsonData.get('greeting'))  # parse as JSON
-            return str(jsonData.get('greeting')), 200
+    	print('Incoming..')
+    	jsonData = request.get_json(force=True)
+    	print(jsonData.get('greeting'))  # parse as JSON
+    	return str(jsonData.get('greeting')), 200
 
     # GET request: goes from flask to browser
     else :
