@@ -20,6 +20,7 @@ import urllib
 
 switch_counter = 0
 product_id = 0
+constJSON=[{"store_name":"zara", "clothing":[]}]
 
 def url_link(switch_counter):
     switcher = {
@@ -29,12 +30,9 @@ def url_link(switch_counter):
     return switcher.get(switch_counter, "Invalid link")
 
 while switch_counter < 2:
-
-
         page = requests.get(url_link(switch_counter))
         # Parse HTML and save to BeautifulSoup object
         soup = BeautifulSoup(page.text, 'html.parser')
-        constJSON=[{"store_name":"zara", "clothing":[]}]
 
         for i in range(len(soup.find_all('div', class_='product-info _product-info'))):  # 'a' tags are for items
 
@@ -71,6 +69,7 @@ while switch_counter < 2:
                 product_price = re.sub("[^0123456789\.]", "", product_price_text).strip()
 
             product_link = soup.find_all('a', attrs={'class': 'name _item'})[i]['href']
+            # product_img_link = soup.find_all('img', attrs={'class': 'product-media _img _imgImpressions _imageLoaded'})[j]['src']
 
             # j = 0
             # visit_for_image = requests.get(product_link)
@@ -89,8 +88,6 @@ while switch_counter < 2:
             print ("link: ") + product_link
             #print ("imgage link: https://") + (product_img_link.replace('//','')) #removes the first '//' from image link
 
-            product_id += 1
-
             dataDict = {
                     "id":str(product_id),
                     "gender":product_gender,
@@ -98,20 +95,23 @@ while switch_counter < 2:
                     "name":product_name,
                     "price":product_price,
                     "link":product_link,
+                    "sale":marked_down
                     #"img":(product_img_link.replace('//',''))
             }
 
-            if 
-            constJSON.append(dataDict)
-            # counter = 0
-            # counter += 1
-            # # constJSON[counter]["clothing"].append({constJSON})
+            product_id += 1
+
+            constJSON[0]["clothing"].append(dataDict)
             # #time.sleep(1.5)  # pause the code for 1.5 sec, so we dont get blocked for spamming
 
-        with open("zara.json", "w") as f:
-            print(json.dumps(constJSON))
-            json.dump(constJSON, f)
-
+        print(json.dumps(constJSON))
         switch_counter += 1
+
+        if switch_counter > 1:
+            with open("zara.json", "w") as f:
+                print(json.dumps(constJSON))
+                json.dump(constJSON, f)
+
+
 
 
