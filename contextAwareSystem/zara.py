@@ -89,7 +89,7 @@ while switch_counter < 2:
             #print ("imgage link: https://") + (product_img_link.replace('//','')) #removes the first '//' from image link
 
             dataDict = {
-                    "id":str(product_id),
+                    "product_id":str(product_id),
                     "gender":product_gender,
                     "category":product_category,
                     "name":product_name,
