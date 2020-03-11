@@ -19,7 +19,7 @@ def hello():
     	return str(jsonData.get('greeting')), 200
 
     # GET request: goes from flask to browser
-    else:
+    else :
         message = {'greeting':'Hello from Flask!'}
         return jsonify(message)  # serialize and use JSON headers
 
