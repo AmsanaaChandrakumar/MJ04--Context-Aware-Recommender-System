@@ -84,7 +84,7 @@ while switch_counter < 2:
             print ("name: ") + product_name
             #print ("product price_parse: ") + str(product_price_parse) #this is the main tag for prices, it shows the price whether is on sale or not, uncomment to check if 'product_price' is correct
             print ("marked-down: ") + marked_down
-            print ("price: ") + product_price + " CAD"
+            print ("price: %f") % (float(product_price))
             print ("link: ") + product_link
             #print ("imgage link: https://") + (product_img_link.replace('//','')) #removes the first '//' from image link
 
@@ -93,7 +93,7 @@ while switch_counter < 2:
                     "gender":product_gender,
                     "category":product_category,
                     "name":product_name,
-                    "price":product_price,
+                    "price":float(product_price),
                     "link":product_link,
                     "sale":marked_down
                     #"img":(product_img_link.replace('//',''))
