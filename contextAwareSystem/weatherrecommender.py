@@ -1,27 +1,43 @@
 import json 
-from operator import itemgetter
+import pandas as pd
+import numpy as np
+from pandas.io.json import json_normalize
 
+
+def getWeather(temperature = -1):
+    if temperature < 0:
+        weatherLabel = "cold"
+    else:
+        weatherLabel = "warm"
+
+    return weatherLabel
+
+
+def sortclothes():
+    getWeather()
+
+    if getWeather() is "cold": 
+        print(top5blazers)
+    else:
+        getWeather() is "warm"
+        print(top5skirts)
+
+        
 with open('zara.json')  as f: 
     zaradata = json.load(f) 
-    zaradata1 = zaradata[0]
-    clothing = zaradata1['clothing']
-    for parameters in clothing:
-        price_data = parameters['price']
-        category_data = parameters['category']
-        sale_data = parameters['sale']
-        link = parameters['link']
-        important_data = [{'category':category_data, 'price':price_data, 'sales':sale_data, 'link':link}]
-        #important_data = [category_data, price_data, sale_data, link]
-        #def sortbyprice():
-        ##price_ascending = sorted(important_data.items(), key = lambda important_data: important_data[1])
-        #important_data.sort(key = price_ascending, reverse = False)
-        #print(price_ascending)
+df = pd.DataFrame(zaradata[0]['clothing'])
 
-        #sorted(important_data, key=itemgetter('price'), reverse = False)
+#sortskirts = df.sort_values(by = ['category','sale', 'price'], ascending= [False, False, True])
+#sortblazers = df.sort_values(by= ['category', 'sale', 'price'], ascending = [True, False, True])
+sort_clothes = df.sort_values(by= ['sale', 'price'], ascending = [False, True])
+getskirts = sort_clothes.loc[sort_clothes['category']=='SKIRTS']
+getblazers = sort_clothes.loc[sort_clothes['category']=='BLAZERS']
+top5skirts = getskirts.head(5)
+top5blazers = getblazers.head(5)
 
-        #important_data.sort(key=itemgetter('price'), reverse = False)
-        #print(important_data)
-    print(sorted(important_data, key=itemgetter('price'), reverse = False))
+sortclothes()
+
+
 
     #if weather = 'WARM': 
-  
+   
