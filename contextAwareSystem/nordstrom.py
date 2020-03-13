@@ -7,10 +7,10 @@ import urllib
 from selenium import webdriver
 
 # Harold driver
-# driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
+driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
 
-# Jas driver
-driver = webdriver.Chrome('/Users/x218850/Documents/capstone/contextAwareSystem/chromedriver')
+# # Jas driver
+# driver = webdriver.Chrome('/Users/x218850/Documents/capstone/contextAwareSystem/chromedriver')
 
 #####################
 
@@ -27,6 +27,7 @@ def url_link(switch_counter): #getting the first two pages sorted by customer ra
 
 while switch_counter < 2: #switch_counter < (number of url links)
         r = 0
+        j=0
         driver.get(url_link(switch_counter))
         selenium_html = driver.page_source
         # page = requests.get(url_link(switch_counter))
@@ -50,7 +51,6 @@ while switch_counter < 2: #switch_counter < (number of url links)
                 product_category = "NOT AVAILABLE"
 
             ############## PRICE #################
-            j = 0
             product_price_parse = soup.find_all("div", {"class": 'YbtDD _3bi0z'})[i].find_all("span", recursive=False)
 
             if str(product_price_parse).find("Was") != -1:
@@ -60,7 +60,7 @@ while switch_counter < 2: #switch_counter < (number of url links)
                 discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
                 discount_percent = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
                 product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
-                ++j
+                j = j+1
             else:
                 marked_down = ("NO")
 
