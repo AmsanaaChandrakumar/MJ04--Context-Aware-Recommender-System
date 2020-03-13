@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcugsAc7f-v7psP5zWudddAUQvGqi1dS0"></script> -->
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcugsAc7f-v7psP5zWudddAUQvGqi1dS0"></script>
 <script src="{{url_for('static', filename='index.js')}}"></script>
 <script src="{{url_for('static', filename='location.js')}}"></script>
 <script src="{{url_for('static', filename='sendData.js')}}"></script>
@@ -15,13 +15,43 @@
 <style>
   body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   .myLink {display: none}
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.w3-display-container:hover .image {
+  opacity: 0.3;
+}
+.w3-display-container:hover .middle {
+  opacity: 1;
+}
+.text {
+  background-color: #ff0000;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
 </style>
 <body class="w3-light-grey">
 
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
   <a href="#" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-spinner w3-margin-right"></i>Styles</b></a>
-  <a href="#about" class="w3-right w3-bar-item w3-button">Log In</a>
+  <a href="#about" class="w3-right w3-bar-item w3-hover-red w3-button">Log In</a>
   <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
 </div>
 
@@ -52,21 +82,30 @@
   <div class="w3-row-padding w3-text-white w3-large">
     <div class="w3-half w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="https://img.ltwebstatic.com/images2_pi/2019/09/04/15675790273188315823_thumbnail_600x799.jpg" alt="Cinque Terre" style="width:100%">
-        <span class="w3-display-bottomleft w3-padding"></span>
+        <img src="https://img.ltwebstatic.com/images2_pi/2019/09/04/15675790273188315823_thumbnail_600x799.jpg" alt="Cinque Terre" class="image" style="width:100%">
+           <div class="middle">
+            <div class="text">Sweater $40</div>
+          </div>
       </div>
+      <span class="w3-display-bottomleft w3-padding"></span>
     </div>
     <div class="w3-half">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSFnRGyBV0KU08Cd7lvhQhpJgJpvIyX5L0RvN_-xmtPn6G-CvPDcyTUVUKQM6RgUxRfRFIMa99z6w&usqp=CAc" alt="New York" style="width:100%">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSFnRGyBV0KU08Cd7lvhQhpJgJpvIyX5L0RvN_-xmtPn6G-CvPDcyTUVUKQM6RgUxRfRFIMa99z6w&usqp=CAc" alt="New York" class="image" style="width:100%">
+            <div class="middle">
+            <div class="text">Leather Boots $90</div>
+          </div>
             <span class="w3-display-bottomleft w3-padding"></span>
           </div>
         </div>
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_2011000/ff_2011060_full.jpg&w=600" alt="San Francisco" style="width:100%">
+            <img src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_2011000/ff_2011060_full.jpg&w=600" alt="San Francisco" class="image" style="width:100%">
+            <div class="middle">
+            <div class="text">Jersey $100</div>
+          </div>
             <span class="w3-display-bottomleft w3-padding">o</span>
           </div>
         </div>
@@ -74,13 +113,19 @@
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="https://ae01.alicdn.com/kf/HTB1xwYGJA9WBuNjSspeq6yz5VXar/2020-New-Fashion-Men-Biker-Jeans-Ripped-Denim-Slim-Fit-Jean-Pants-Crease-Designer-Hip-Hop.jpg_q50.jpg" alt="Pisa" style="width:100%">
+            <img src="https://ae01.alicdn.com/kf/HTB1xwYGJA9WBuNjSspeq6yz5VXar/2020-New-Fashion-Men-Biker-Jeans-Ripped-Denim-Slim-Fit-Jean-Pants-Crease-Designer-Hip-Hop.jpg_q50.jpg" alt="Pisa" class="image" style="width:100%">
+            <div class="middle">
+            <div class="text">Ripped Jeans $35</div>
+          </div>
             <span class="w3-display-bottomleft w3-padding"></span>
           </div>
         </div>
         <div class="w3-half w3-margin-bottom">
           <div class="w3-display-container">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71sK-iuyFmL._AC_UL1500_.jpg" alt="Paris" style="width:100%">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71sK-iuyFmL._AC_UL1500_.jpg" alt="Paris" class="image" style="width:100%">
+            <div class="middle">
+            <div class="text">Hawaiian Shirt $55</div>
+          </div>
             <span class="w3-display-bottomleft w3-padding"></span>
           </div>
         </div>
