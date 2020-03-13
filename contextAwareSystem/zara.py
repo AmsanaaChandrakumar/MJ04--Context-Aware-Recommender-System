@@ -5,19 +5,6 @@ import re
 import json
 import urllib
 
-# Set the URL you want to scrape from
-#URL = 'https://www.zara.com/ca/en/man-blazers-l608.html?v1=1445002'  # men blazers from Zara
-
-# proxies = {
-#     "http": 'http://"58.84.164.230:53281'
-# }
-#
-# # Connect to the URL
-# try:
-#     page = requests.get(URL, proxies=proxies)
-# except:
-#     print("Connnection error")
-
 switch_counter = 0
 product_id = 0
 constJSON=[{"store_name":"zara", "clothing":[]}]

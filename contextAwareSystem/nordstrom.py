@@ -6,13 +6,16 @@ import json
 import urllib
 from selenium import webdriver
 
-driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
+# Harold driver
+# driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
+
+# Jas driver
+driver = webdriver.Chrome('/Users/x218850/Documents/capstone/contextAwareSystem/chromedriver')
 
 #####################
 
 switch_counter = 0
 product_id = 0
-
 constJSON=[{"store_name":"nordstrom", "clothing":[]}]
 
 def url_link(switch_counter): #getting the first two pages sorted by customer rating
@@ -29,7 +32,6 @@ while switch_counter < 2: #switch_counter < (number of url links)
         # page = requests.get(url_link(switch_counter))
         # Parse HTML and save to BeautifulSoup object
         soup = BeautifulSoup(selenium_html, 'html.parser')
-        constJSON=[{"store_name":"nordstrom", "clothing":[]}]
 
         for i in range(len(soup.find_all('article', class_='_1AOd3 QIjwE'))):  # 'a' tags are for items
 
@@ -99,10 +101,12 @@ while switch_counter < 2: #switch_counter < (number of url links)
             print ("name: ") + product_name
             print ("marked-down: ") + marked_down
             print ("discount: ")+str(discount_percent)+"%"
-            print ("price: ") + str(product_price)+" CAD"
+            print ("price: ") + str(product_price)[:4]+" CAD"
             print ("rating: ") + str(rating)
             print ("reviews: ") + number_of_reviews
             print ("link: ") + product_link
+
+            product_price_json = product_price[:4]
 
             # product_id += 1
 
@@ -114,9 +118,9 @@ while switch_counter < 2: #switch_counter < (number of url links)
                     "name":product_name,
                     "marked-down": marked_down,
                     "discount percent": discount_percent,
-                    "price":float(product_price),
-                    "rating:":str(rating),
-                    "reviews:":number_of_reviews,
+                    "price":float(product_price_json),
+                    "rating":str(rating),
+                    "reviews":number_of_reviews,
                     "link":product_link,
                     #"img":(product_img_link.replace('//',''))
             }
