@@ -112,16 +112,16 @@ while switch_counter < 2: #switch_counter < (number of url links)
 
 
             dataDict = {
-                    "id":str(product_id),
+                    "product_id":str(product_id),
                     "gender":product_gender,
                     "category":product_category,
                     "name":product_name,
-                    "marked-down": marked_down,
-                    "discount percent": discount_percent,
                     "price":float(product_price_json),
-                    "rating":str(rating),
-                    "reviews":number_of_reviews,
                     "link":product_link,
+                    "sale": marked_down,
+                    "discount_percent": discount_percent,
+                    "rating":str(rating),
+                    "reviews":number_of_reviews
                     #"img":(product_img_link.replace('//',''))
             }
 
