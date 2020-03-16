@@ -50,6 +50,7 @@ var latlng = new google.maps.LatLng(lat, lng);
         return response.text();
       }).then(function (text) {
         var weatherData = JSON.parse(text)
+        document.getElementById("temperature").innerHTML = weatherData.main.temp;
         console.log('Temperature: ');
         console.log(weatherData.main.temp);
         console.log('Wind Speed: ');
