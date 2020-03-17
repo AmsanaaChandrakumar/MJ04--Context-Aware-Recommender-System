@@ -57,6 +57,8 @@ var latlng = new google.maps.LatLng(lat, lng);
         console.log(weatherData.wind.speed);
         console.log('Description: ');
         console.log(weatherData.weather[0].description);
+        console.log('Icon: ');
+        console.log(weatherData.weather[0].icon);
       });
 
       } else {
