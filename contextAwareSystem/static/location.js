@@ -50,12 +50,17 @@ var latlng = new google.maps.LatLng(lat, lng);
         return response.text();
       }).then(function (text) {
         var weatherData = JSON.parse(text)
+        var temperature = weatherData.main.temp;
+        document.getElementById("temperature").innerHTML = Math.round(temperature) + "&#8451";
         console.log('Temperature: ');
         console.log(weatherData.main.temp);
         console.log('Wind Speed: ');
         console.log(weatherData.wind.speed);
         console.log('Description: ');
         console.log(weatherData.weather[0].description);
+        document.getElementById("icon").innerHTML = weatherData.weather[0].icon;
+        console.log('Icon: ');
+        console.log(weatherData.weather[0].icon);
       });
 
       } else {

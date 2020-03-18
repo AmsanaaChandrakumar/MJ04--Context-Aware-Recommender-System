@@ -6,11 +6,11 @@ import json
 import urllib
 from selenium import webdriver
 
-# Harold driver
-driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
+# # Harold driver
+# driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
 
-# # Jas driver
-# driver = webdriver.Chrome('/Users/x218850/Documents/capstone/contextAwareSystem/chromedriver')
+# Jas driver
+driver = webdriver.Chrome('/Users/x218850/Documents/capstone/contextAwareSystem/chromedriver')
 
 #####################
 
@@ -24,6 +24,15 @@ def url_link(switch_counter): #getting the first two pages sorted by customer ra
         1: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=2&sort=CustomerRating'  # second page men activerwear
     }
     return switcher.get(switch_counter, "Invalid link")
+
+def ratings_json(rating):
+    jsonValue = str(rating).find(".")
+
+    if jsonValue == 1:
+        return float(rating[:3])
+    else:
+        return float(rating[:1])
+
 
 while switch_counter < 2: #switch_counter < (number of url links)
         r = 0
@@ -108,20 +117,17 @@ while switch_counter < 2: #switch_counter < (number of url links)
 
             product_price_json = product_price[:4]
 
-            # product_id += 1
-
-
             dataDict = {
-                    "id":str(product_id),
+                    "product_id":str(product_id),
                     "gender":product_gender,
                     "category":product_category,
                     "name":product_name,
-                    "marked-down": marked_down,
-                    "discount percent": discount_percent,
                     "price":float(product_price_json),
-                    "rating":str(rating),
-                    "reviews":number_of_reviews,
                     "link":product_link,
+                    "sale": marked_down,
+                    "discount_percent": discount_percent,
+                    "rating":ratings_json(rating),
+                    "reviews":int(number_of_reviews)
                     #"img":(product_img_link.replace('//',''))
             }
 
