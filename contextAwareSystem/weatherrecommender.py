@@ -6,7 +6,7 @@ from pandas.io.json import json_normalize
 ##weather labels: cold, chilly, warm, hot
 ##precipitation labels: dry, rain, snow
 
-def getWeather(temperature = 20, precipitation = 'rain'):
+def getWeather(temperature = 1, precipitation = 'rain'):
     if temperature <= 0 and precipitation == 'dry':
         weatherLabel = "colddry"
     elif temperature <= 0 and precipitation == 'rain':
@@ -55,16 +55,19 @@ def sortclothes():
     elif getWeather() is "hotrain": 
         print(top5warmrain)
 
-        
+#load the json file 
 with open('nordstrom.json')  as f: 
     nordsdata = json.load(f) 
 df = pd.DataFrame(nordsdata[0]['clothing'])
+
+#convert discount_percent into an int 
+df['discount_percent'] = df['discount_percent'].astype(int)
 
 ## FIGURING OUT WEIGHTED RATING
 No_Reviews = df['reviews']
 Rating = df['rating']
 MeanReview = df['rating'].mean()
-minReview = df['reviews'].quantile(0.5)
+minReview = ((df['reviews']).astype(int)).quantile(0.5)
 
 df['weighted_rating'] = ((Rating*No_Reviews)+(MeanReview*minReview))/(No_Reviews + minReview)
 
@@ -82,16 +85,16 @@ hotrain= df[df.name.str.contains('tights| vest| shorts| polo| top| t-shirt',case
 
 
 #Sort clothes according to desired parameters
-sort_colddry = colddry.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_coldrain = coldrain.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_coldsnow = coldsnow.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_chillydry = chillydry.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_chillyrain = chillyrain.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_chillysnow = chillysnow.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_warmdry = warmdry.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_warmrain = warmrain.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_hotdry = hotdry.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
-sort_hotrain = hotrain.sort_values(by= ['weighted_rating','discount_percent', 'price'], ascending = [False, False, True])
+sort_colddry = colddry.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_coldrain = coldrain.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_coldsnow = coldsnow.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_chillydry = chillydry.sort_values(by= ['discount_percent','weighted_rating', 'price'], ascending = [False, False, True])
+sort_chillyrain = chillyrain.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_chillysnow = chillysnow.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_warmdry = warmdry.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_warmrain = warmrain.sort_values(by= ['discount_percent', 'weighted_rating', 'price'], ascending = [False, False, True])
+sort_hotdry = hotdry.sort_values(by= ['discount_percent', 'weighted_rating','price'], ascending = [False, False, True])
+sort_hotrain = hotrain.sort_values(by= ['discount_percent', 'weighted_rating','price'], ascending = [False, False, True])
 
 #get top 5 items per weather condition
 top5colddry = sort_colddry.head(5)
