@@ -5,6 +5,10 @@ import re
 import json
 import urllib
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 # # Harold driver
 # driver = webdriver.Chrome('/Users/harold/Desktop/Project/WebScrapping/nordstrom/chromedriver')
@@ -38,6 +42,12 @@ while switch_counter < 2: #switch_counter < (number of url links)
         r = 0
         j=0
         driver.get(url_link(switch_counter))
+        try:
+            wait = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'dialog-description')))
+            print("Page is ready")
+        except TimeoutException:
+            print("Loading took too much time!")
+
         selenium_html = driver.page_source
         # page = requests.get(url_link(switch_counter))
         # Parse HTML and save to BeautifulSoup object
