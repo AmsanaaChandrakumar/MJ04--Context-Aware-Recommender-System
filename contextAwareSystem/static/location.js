@@ -1,4 +1,5 @@
 var geocoder;
+document.getElementById("svg-img").src = "static/img/50n.svg";
 
 initialize()
 if (navigator.geolocation) {
@@ -18,7 +19,6 @@ function errorFunction(){
 function initialize() {
 	geocoder = new google.maps.Geocoder();
 	console.log("in tuna2")
-  document.getElementById("svg-img").src = "static/img/50n.svg";
 }
 
 function codeLatLng(lat, lng) {
