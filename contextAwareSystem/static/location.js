@@ -18,6 +18,7 @@ function errorFunction(){
 function initialize() {
 	geocoder = new google.maps.Geocoder();
 	console.log("in tuna2")
+  document.getElementById("svg-img").src = "static/img/50n.svg";
 }
 
 function codeLatLng(lat, lng) {
@@ -58,7 +59,7 @@ var latlng = new google.maps.LatLng(lat, lng);
         console.log(weatherData.wind.speed);
         console.log('Description: ');
         console.log(weatherData.weather[0].description);
-        document.getElementById("icon").innerHTML = weatherData.weather[0].icon;
+        document.getElementById("svg-img").src = "static/img/" + weatherData.weather[0].icon + ".svg";
         console.log('Icon: ');
         console.log(weatherData.weather[0].icon);
       });

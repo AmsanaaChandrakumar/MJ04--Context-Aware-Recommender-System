@@ -7,9 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcugsAc7f-v7psP5zWudddAUQvGqi1dS0"></script>
 <script src="{{url_for('static', filename='index.js')}}"></script>
-<script src="{{url_for('static', filename='location.js')}}"></script>
 <script src="{{url_for('static', filename='sendData.js')}}"></script>
 
 <style>
@@ -46,10 +44,6 @@
   padding: 16px 32px;
   display: inherit;
 }
-.svg-img{
-  width: "50";
-  height: "50";
-}
 
 </style>
 <body class="w3-light-grey">
@@ -61,12 +55,12 @@
       <i class="fa fa-spinner w3-margin-right"></i>Styles
     </b>
   </a>
-  <a name="icon" id="icon" class="w3-bar-item w3-right">
-    <img class="svg-img" src="img">
-  </a>
   <a href="#about" class="w3-right w3-bar-item w3-hover-red w3-button w3-text-grey">Log In</a>
   <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
   <a name="temperature" id="temperature" class="w3-bar-item w3-text-grey w3-right"></a>
+  <a name="icon" id="icon" class="w3-bar-item w3-right">
+    <img id="svg-img" src="" class="svg" height="40" vertical-align="middle" width="40">
+  </a>
 </div>
 
 <!-- Header -->
@@ -167,4 +161,5 @@
 
 
 </body>
+<script src="{{url_for('static', filename='location.js')}}"></script>
 </html>
