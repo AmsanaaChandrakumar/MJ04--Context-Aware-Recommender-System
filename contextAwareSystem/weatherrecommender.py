@@ -61,15 +61,15 @@ with open('nordstrom.json')  as f:
 df = pd.DataFrame(nordsdata[0]['clothing'])
 
 #convert discount_percent into an int 
-df['discount_percent'] = df['discount_percent'].astype(int)
+#df['discount_percent'] = df['discount_percent'].astype(int)
 
 ## FIGURING OUT WEIGHTED RATING
 No_Reviews = df['reviews']
 Rating = df['rating']
-MeanReview = df['rating'].mean()
-minReview = ((df['reviews']).astype(int)).quantile(0.5)
+#MeanReview = df['rating'].mean()
+#minReview = ((df['reviews']).astype(int)).quantile(0.5)
 
-df['weighted_rating'] = ((Rating*No_Reviews)+(MeanReview*minReview))/(No_Reviews + minReview)
+df['weighted_rating'] = (0.5*Rating) + (10*(1-0.5))*(1-(np.exp((-No_Reviews)/50)))
 
 #extract each different type of clothing from the dataset
 colddry = df[df.name.str.contains('hoodie| pullover| joggers| jacket| sweatshirt',case=False)]
