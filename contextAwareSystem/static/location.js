@@ -1,5 +1,4 @@
 var geocoder;
-document.getElementById("svg-img").src = "static/img/50n.svg";
 
 initialize()
 if (navigator.geolocation) {
