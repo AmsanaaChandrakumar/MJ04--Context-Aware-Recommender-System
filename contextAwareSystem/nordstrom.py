@@ -25,20 +25,21 @@ constJSON=[{"store_name":"nordstrom", "clothing":[]}]
 
 def url_link(switch_counter):
     switcher = {
-        0:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #me activewear page 1
+        0:'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=13&sort=CustomerRating',
+        # 0:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #me activewear page 1
         1:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=2&sort=CustomerRating', #men activewear page 2
         2: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&sort=CustomerRating', #women activewear page 1
-        3: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=2&sort=CustomerRating',#women activewear page 2
-        4: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&sort=CustomerRating', #men blazers/coats page 1
-        5: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=2&sort=CustomerRating', #men blazers/coats page 2
-        6: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&sort=CustomerRating', #women coats/jackets/blazers page 1
-        7: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=2&sort=CustomerRating', #women coats/jackets/blazers page 2
-        8: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&sort=CustomerRating', #men coats/jackets page 1
-        9: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=2&sort=CustomerRating', #men coats/jackets page 2
-        10: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&sort=CustomerRating', #women jeans/denims page 1
-        11: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=2&sort=CustomerRating', #women jeans/denims page 2
-        12: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&sort=CustomerRating', #men jeans page 1
-        13: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=2&sort=CustomerRating', #men jeans page 2
+        # 3: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=2&sort=CustomerRating',#women activewear page 2
+        # 4: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&sort=CustomerRating', #men blazers/coats page 1
+        # 5: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=2&sort=CustomerRating', #men blazers/coats page 2
+        # 6: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&sort=CustomerRating', #women coats/jackets/blazers page 1
+        # 7: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=2&sort=CustomerRating', #women coats/jackets/blazers page 2
+        # 8: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&sort=CustomerRating', #men coats/jackets page 1
+        # 9: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=2&sort=CustomerRating', #men coats/jackets page 2
+        # 10: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&sort=CustomerRating', #women jeans/denims page 1
+        # 11: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=2&sort=CustomerRating', #women jeans/denims page 2
+        # 12: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&sort=CustomerRating', #men jeans page 1
+        # 13: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=2&sort=CustomerRating', #men jeans page 2
 
     }
     return switcher.get(switch_counter, "Invalid link")
@@ -47,7 +48,7 @@ def ratings_json(rating):
     jsonValue = str(rating).find(".")
 
     if rating == "N/A":
-        return "N/A"
+        return 0 #switched to 0 from "N/A"
     else:
         if jsonValue == 1:
             return float(rating[:3])
@@ -55,7 +56,7 @@ def ratings_json(rating):
             return float(rating[:1])
 
 
-while switch_counter < 14: #switch_counter < (number of url links)
+while switch_counter < 3: #switch_counter < (number of url links)
 
         r = 0
         j=0
@@ -102,14 +103,14 @@ while switch_counter < 14: #switch_counter < (number of url links)
                             discount_percent_parse = str(
                                 soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next(
                                     "span", recursive=False))
-                            discount_percent = "N/A"
+                            discount_percent = 0 #changed to 0 from "N/A"
                             product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0] #when an item is on sale but there is no fixed price but a range instead, here we get
                         else:
                             discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
                             discount_percent = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
 
                             if len(discount_percent)>2:
-                                discount_percent="N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
+                                discount_percent=0 #changed to 0 from "N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
 
                             product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
                         j = j+1
@@ -174,7 +175,7 @@ while switch_counter < 14: #switch_counter < (number of url links)
                             "price":float(product_price_json),
                             "link":product_link,
                             "sale": marked_down,
-                            "discount_percent": discount_percent,
+                            "discount_percent": float(discount_percent), #added float
                             "rating":ratings_json(rating),
                             "reviews":int(number_of_reviews),
                             "img":product_image
@@ -186,14 +187,14 @@ while switch_counter < 14: #switch_counter < (number of url links)
                     # #time.sleep(1.5)  # pause the code for 1.5 sec, so we dont get blocked for spamming
             except IndexError:
                 print("\nIndex error!\nSwitching to next case...")
-                constJSON[0]["clothing"].append(None)
+                # constJSON[0]["clothing"].append(None)
                 pass
 
         switch_counter += 1
 
         if switch_counter > 1:
             with open("nordstrom.json", "w") as f:
-                print("\nSaved to JSON file")
+                print("\nSaved to JSON file\n")
                 # print(json.dumps(constJSON))
                 json.dump(constJSON, f)
 
