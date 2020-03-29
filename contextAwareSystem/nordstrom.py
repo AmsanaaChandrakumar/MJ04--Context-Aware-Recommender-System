@@ -25,22 +25,78 @@ constJSON=[{"store_name":"nordstrom", "clothing":[]}]
 
 def url_link(switch_counter):
     switcher = {
-        0:'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=13&sort=CustomerRating',
-        # 0:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #me activewear page 1
-        1:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=2&sort=CustomerRating', #men activewear page 2
-        2: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&sort=CustomerRating', #women activewear page 1
-        # 3: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=2&sort=CustomerRating',#women activewear page 2
-        # 4: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&sort=CustomerRating', #men blazers/coats page 1
-        # 5: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=2&sort=CustomerRating', #men blazers/coats page 2
-        # 6: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&sort=CustomerRating', #women coats/jackets/blazers page 1
-        # 7: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=2&sort=CustomerRating', #women coats/jackets/blazers page 2
-        # 8: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&sort=CustomerRating', #men coats/jackets page 1
-        # 9: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=2&sort=CustomerRating', #men coats/jackets page 2
-        # 10: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&sort=CustomerRating', #women jeans/denims page 1
-        # 11: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=2&sort=CustomerRating', #women jeans/denims page 2
-        # 12: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&sort=CustomerRating', #men jeans page 1
-        # 13: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=2&sort=CustomerRating', #men jeans page 2
 
+        0:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #me activewear page 1 TO 7
+        1: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=2&sort=CustomerRating',
+        2: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=3&sort=CustomerRating',
+        3: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=4&sort=CustomerRating',
+        4: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=5&sort=CustomerRating',
+        5: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=6&sort=CustomerRating',
+        6: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=7&sort=CustomerRating',
+
+        7: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&sort=CustomerRating', #women active wear page 1 to 7
+        8: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=2&sort=CustomerRating',
+        9: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=3&sort=CustomerRating',
+        10: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=4&sort=CustomerRating',
+        11: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=5&sort=CustomerRating',
+        12: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=6&sort=CustomerRating',
+        13: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=7&sort=CustomerRating',
+
+        14: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&sort=CustomerRating', #men blazers and sport coats page 1 to 7
+        15: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=2&sort=CustomerRating',
+        16: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=3&sort=CustomerRating',
+        17: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=4&sort=CustomerRating',
+        18: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=5&sort=CustomerRating',
+        19: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=6&sort=CustomerRating',
+        20: 'https://shop.nordstrom.com/c/mens-blazers-sportcoats?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FBlazers%20%26%20Sport%20Coats&offset=1&page=7&sort=CustomerRating',
+
+        21: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&sort=CustomerRating', #women coats,jackets and blazers page 1 to 7
+        22: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=2&sort=CustomerRating',
+        23: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=3&sort=CustomerRating',
+        24: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=4&sort=CustomerRating',
+        25: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=5&sort=CustomerRating',
+        26: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=6&sort=CustomerRating',
+        27: 'https://shop.nordstrom.com/c/womens-coats?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FCoats%2C%20Jackets%20%26%20Blazers&offset=1&page=7&sort=CustomerRating',
+
+        28: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&sort=CustomerRating', #men coat and jackets
+        29: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=2&sort=CustomerRating',
+        30: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=3&sort=CustomerRating',
+        31: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=4&sort=CustomerRating',
+        32: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=5&sort=CustomerRating',
+        33: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=6&sort=CustomerRating',
+        34: 'https://shop.nordstrom.com/c/mens-coats-jackets?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FCoats%20%26%20Jackets&offset=3&page=7&sort=CustomerRating',
+
+        35: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&sort=CustomerRating', #women dresses
+        36: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&page=2&sort=CustomerRating',
+        37: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&page=3&sort=CustomerRating',
+        38: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=4&page=4&sort=CustomerRating',
+        39: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&page=5&sort=CustomerRating',
+        40: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&page=6&sort=CustomerRating',
+        41: 'https://shop.nordstrom.com/c/womens-dresses-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FDresses&offset=3&page=7&sort=CustomerRating',
+
+        42: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&sort=CustomerRating', #men dress shirts
+        43: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=2&sort=CustomerRating',
+        44: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=3&sort=CustomerRating',
+        45: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=4&sort=CustomerRating',
+        46: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=5&sort=CustomerRating',
+        47: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=6&sort=CustomerRating',
+        48: 'https://shop.nordstrom.com/c/mens-dress-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FDress%20Shirts&page=7&sort=CustomerRating',
+
+        49: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&sort=CustomerRating', #women jeans and denim
+        50: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=2&sort=CustomerRating',
+        51: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=3&sort=CustomerRating',
+        52: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=4&sort=CustomerRating',
+        53: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=5&sort=CustomerRating',
+        54: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=6&sort=CustomerRating',
+        55: 'https://shop.nordstrom.com/c/womens-jeans-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FJeans%20%26%20Denim&offset=3&page=7&sort=CustomerRating',
+
+        56: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&sort=CustomerRating', #men jeans
+        57: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=2&sort=CustomerRating',
+        58: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=3&sort=CustomerRating',
+        59: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=4&sort=CustomerRating',
+        60: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=5&sort=CustomerRating',
+        61: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=6&sort=CustomerRating',
+        62: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=7&sort=CustomerRating',
     }
     return switcher.get(switch_counter, "Invalid link")
 
@@ -56,14 +112,14 @@ def ratings_json(rating):
             return float(rating[:1])
 
 
-while switch_counter < 3: #switch_counter < (number of url links)
+while switch_counter < 63: #switch_counter < (number of url links)
 
         r = 0
         j=0
         driver.get(url_link(switch_counter))
         print("loading page...")
         try:
-            wait = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.ID, 'dialog-description')))
+            wait = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'dialog-description')))
             print("page is ready")
         except TimeoutException:
             print("loading took too long!")
@@ -79,12 +135,10 @@ while switch_counter < 3: #switch_counter < (number of url links)
                     else:
                         product_gender = "UNISEX"
 
-                    if switch_counter == 0 or switch_counter == 1 or switch_counter == 2 or switch_counter == 3:
+                    if switch_counter >= 0 and switch_counter<= 13:
                         product_category = "ACTIVEWEAR"
-                    elif switch_counter == 4 or switch_counter == 5 or switch_counter == 6 or switch_counter == 7 or switch_counter == 8  or switch_counter == 9:
-                        product_category = "BLAZERS/COATS/JACKETS"
-                    elif switch_counter == 10 or switch_counter == 11 or switch_counter == 12 or switch_counter == 13:
-                        product_category = "JEANS/DENIMS"
+                    elif switch_counter >= 14 and switch_counter<=20:
+                        product_category = "BLAZERS/SPORT COATS"
                     else:
                         product_category = "NOT AVAILABLE"
 
@@ -106,13 +160,16 @@ while switch_counter < 3: #switch_counter < (number of url links)
                             discount_percent = 0 #changed to 0 from "N/A"
                             product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0] #when an item is on sale but there is no fixed price but a range instead, here we get
                         else:
-                            discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
-                            discount_percent = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
-
-                            if len(discount_percent)>2:
-                                discount_percent=0 #changed to 0 from "N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
-
                             product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
+
+                            discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
+                            discount_percent_text = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
+
+                            if len(discount_percent_text)>2:
+                                discount_percent = 0 #changed to 0 from "N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
+                            else:
+                                discount_percent=discount_percent_text
+
                         j = j+1
                     else:
                         marked_down = ("NO")
@@ -175,7 +232,7 @@ while switch_counter < 3: #switch_counter < (number of url links)
                             "price":float(product_price_json),
                             "link":product_link,
                             "sale": marked_down,
-                            "discount_percent": float(discount_percent), #added float
+                            "discount_percent": (discount_percent), #added float
                             "rating":ratings_json(rating),
                             "reviews":int(number_of_reviews),
                             "img":product_image
