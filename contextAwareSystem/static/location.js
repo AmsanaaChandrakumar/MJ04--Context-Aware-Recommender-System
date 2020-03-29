@@ -16,16 +16,16 @@ function errorFunction(){
 }
 
 function initialize() {
-fetch('/googleMaps')
-    .then(function (response) {
-        return response.text();
-    }).then(function (googleAPI) {
-        console.log('google maps:');
-        console.log(googleAPI);
+// fetch('/googleMaps')
+//     .then(function (response) {
+//         return response.text();
+//     }).then(function (googleAPI) {
+//         console.log('google maps:');
+//         console.log(googleAPI);
 
-        var script = document.createElement('script');
-        script.src = googleAPI;
-    });
+//         var script = document.createElement('script');
+//         script.src = googleAPI;
+//     });
 
 	geocoder = new google.maps.Geocoder();
 	console.log("in tuna2")
