@@ -1,8 +1,13 @@
 import requests
+import configparser
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
+# app.config.from_envvar('APP_SETTINGS')
 
+config = configparser.ConfigParser()
+config.read('config.cfg')
+print(config['GOOGLE.MAPS']['SECRET_KEY'])
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -33,5 +38,14 @@ def cityWeather():
     	data = res.json()
     	return data, 200
 
+@app.route('/googleMaps', methods=['GET', 'POST'])
+def googleMaps():
+    if request.method == 'POST':
+        print("POST request")
+
+    else:
+        googleMapsAPI = config['GOOGLE.MAPS']['SECRET_KEY']
+        return googleMapsAPI
+        
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8080, debug=True)
+    app.run(host="127.0.0.1", port=8080)
