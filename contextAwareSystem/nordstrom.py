@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from datetime import datetime
+startTime = datetime.now()
 
 
 # Harold driver
@@ -137,73 +139,87 @@ while switch_counter < 63: #switch_counter < (number of url links)
 
                     if switch_counter >= 0 and switch_counter<= 13:
                         product_category = "ACTIVEWEAR"
-                    elif switch_counter >= 14 and switch_counter<=20:
-                        product_category = "BLAZERS/SPORT COATS"
+                    elif switch_counter >= 14 and switch_counter<=34:
+                        product_category = "BLAZERS/COATS/JACKETS"
+                    elif switch_counter >= 35 and switch_counter<=41:
+                        product_category = "DRESSES"
+                    elif switch_counter >= 42 and switch_counter<=48:
+                        product_category = "SHIRTS"
+                    elif switch_counter >= 49 and switch_counter<=62:
+                        product_category = "JEANS/DENIM"
                     else:
                         product_category = "NOT AVAILABLE"
 
-                    ############## PRICE #################
+                    #----------PRICE----------
+                    no_info = 0 #for when Nordstrom asks to add the product to the shopping cart to know the price
 
                     product_price_parse = soup.findAll("div", {"class": 'YbtDD _3bi0z'})[i].findAll("span", recursive=False)
-                    # product_price_parse = soup.find_all("article", {"class": '_1AOd3 QIjwE'})[i].find_all("span", recursive=False)
 
-                    if str(product_price_parse).find("Was") != -1:
-                        marked_down = ("YES")
-                        product_price_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next("span", recursive=False))
-
-                        if str(product_price_parse).find('–') != -1:
-                            # discount_percent = None
-                            # product_price = None
-                            discount_percent_parse = str(
-                                soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next(
-                                    "span", recursive=False))
-                            discount_percent = 0 #changed to 0 from "N/A"
-                            product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0] #when an item is on sale but there is no fixed price but a range instead, here we get
-                        else:
-                            product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
-
-                            discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
-                            discount_percent_text = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
-
-                            if len(discount_percent_text)>2:
-                                discount_percent = 0 #changed to 0 from "N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
-                            else:
-                                discount_percent=discount_percent_text
-
-                        j = j+1
+                    if (str(soup.findAll("article", {"class": '_1AOd3 QIjwE'})[i].findAll("div", recursive=False)).find(
+                            "Add") != -1):  # Nordstrom for some product requires to add item to bag to find price, we have no product info in these cases
+                        product_price = 0
+                        discount_percent=0
+                        marked_down = "NO"
+                        no_info = 1
                     else:
-                        marked_down = ("NO")
+                        if str(product_price_parse).find("Was") != -1:
+                            marked_down = ("YES")
+                            product_price_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next("span", recursive=False))
 
-                        discount_percent = 0
-                        product_price_parse = str(
-                            soup.find_all("div", {"class": 'YbtDD _3bi0z'})[i].find_next().find_next("span", recursive=False))
+                            if str(product_price_parse).find('–') != -1:
+                                # discount_percent = None
+                                # product_price = None
+                                discount_percent_parse = str(
+                                    soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next(
+                                        "span", recursive=False))
+                                discount_percent = 0 #changed to 0 from "N/A"
+                                product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0] #when an item is on sale but there is no fixed price but a range instead, here we get
+                            else:
+                                product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
 
-                        if str(product_price_parse).find('–') != -1:
-                            product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0]
+                                discount_percent_parse = str(soup.find_all("div", {"class": 'YbtDD _18N5Q'})[j].find_next().find_next().find_next("span", recursive=False))
+                                discount_percent_text = (re.sub("[^0123456789\.]", "", discount_percent_parse))[2:].strip()
+
+                                if len(discount_percent_text)>2:
+                                    discount_percent = 0 #changed to 0 from "N/A" #the item is actually on sale but the page doesn't display the percentage and we get an invalid answer in response
+                                else:
+                                    discount_percent=discount_percent_text
+
+                            j = j+1
                         else:
-                            product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
+                            marked_down = ("NO")
 
-                    ##############
-                    ############## RATING #################
+                            discount_percent = 0
+                            product_price_parse = str(
+                                soup.find_all("div", {"class": 'YbtDD _3bi0z'})[i].find_next().find_next("span", recursive=False))
 
+                            if str(product_price_parse).find('–') != -1:
+                                product_price = ((re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()).partition("–")[0]
+                            else:
+                                product_price = (re.sub("[^0123456789\.]", "", product_price_parse))[2:].strip()
 
+                    #------------RATING----------------
                     item_parse = soup.findAll('article', class_='_1AOd3 QIjwE')[i].find_all("a", recursive=False)
 
-                    if str(item_parse).find("stars") != -1: #searching each item's class to find if a review exists, keyword is 'stars'
-
-                        number_of_reviews = (re.sub("[^0123456789\.]", "", soup.find_all('span', attrs={'class': '_3slKc'})[r].text)).strip()
-                        rating_parse = str(
-                            soup.find_all("span", {"class": '_3slKc'})[r].find_next("span", recursive=False))
-
-                        start = '<span aria-label="'
-                        end = ' stars'
-                        rating = re.search('%s(.*)%s' % (start, end), rating_parse).group(1)
-                        r = r+1
-                    else:
+                    if no_info==1:
                         rating = "N/A"
                         number_of_reviews = 0
+                    else:
+                        if str(item_parse).find("stars") != -1: #searching each item's class to find if a review exists, keyword is 'stars'
 
-                    ##############
+                            number_of_reviews = (re.sub("[^0123456789\.]", "", soup.find_all('span', attrs={'class': '_3slKc'})[r].text)).strip()
+                            rating_parse = str(
+                                soup.find_all("span", {"class": '_3slKc'})[r].find_next("span", recursive=False))
+
+                            start = '<span aria-label="'
+                            end = ' stars'
+                            rating = re.search('%s(.*)%s' % (start, end), rating_parse).group(1)
+                            r = r+1
+                        else:
+                            rating = "N/A"
+                            number_of_reviews = 0
+
+                    #----------------------------
 
                     product_name = soup.find_all('h3', attrs={'class': 'Dawzg _28b4r'})[i].text
                     product_link = "https://shop.nordstrom.com"+soup.find_all('a', attrs={'class': '_1av3_'})[i]['href']
@@ -216,13 +232,17 @@ while switch_counter < 63: #switch_counter < (number of url links)
                     print ("name: ") + product_name
                     print ("marked-down: ") + marked_down
                     print ("discount: ")+str(discount_percent)
-                    print ("price: ") + str(product_price)[:4]
+                    print ("price: ") + str(product_price)[:5]
                     print ("rating: ") + str(rating)
                     print ("reviews: ") + str(number_of_reviews)
                     print ("link: ") + product_link
                     print ("image: ")+product_image
+                    print ("currently on page: ")+str(switch_counter)
 
-                    product_price_json = product_price[:4]
+                    if product_price == 0:
+                        product_price_json = 0
+                    else:
+                        product_price_json = product_price[:5]
 
                     dataDict = {
                             "product_id":str(product_id),
@@ -232,7 +252,7 @@ while switch_counter < 63: #switch_counter < (number of url links)
                             "price":float(product_price_json),
                             "link":product_link,
                             "sale": marked_down,
-                            "discount_percent": (discount_percent), #added float
+                            "discount_percent": (discount_percent),
                             "rating":ratings_json(rating),
                             "reviews":int(number_of_reviews),
                             "img":product_image
@@ -243,9 +263,7 @@ while switch_counter < 63: #switch_counter < (number of url links)
                     constJSON[0]["clothing"].append(dataDict)
                     # #time.sleep(1.5)  # pause the code for 1.5 sec, so we dont get blocked for spamming
             except IndexError:
-                print("\nIndex error!\nSwitching to next case...")
-                # constJSON[0]["clothing"].append(None)
-                pass
+                print("Index error!")
 
         switch_counter += 1
 
@@ -254,5 +272,6 @@ while switch_counter < 63: #switch_counter < (number of url links)
                 print("\nSaved to JSON file\n")
                 # print(json.dumps(constJSON))
                 json.dump(constJSON, f)
+print ("\nExecution time: ")+str(datetime.now() - startTime)
 
 
