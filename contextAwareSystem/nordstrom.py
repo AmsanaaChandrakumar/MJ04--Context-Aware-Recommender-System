@@ -28,7 +28,7 @@ constJSON=[{"store_name":"nordstrom", "clothing":[]}]
 def url_link(switch_counter):
     switcher = {
 
-        0:'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #me activewear page 1 TO 7
+        0: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&sort=CustomerRating', #men activewear page 1 TO 7
         1: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=2&sort=CustomerRating',
         2: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=3&sort=CustomerRating',
         3: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=4&sort=CustomerRating',
@@ -36,7 +36,7 @@ def url_link(switch_counter):
         5: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=6&sort=CustomerRating',
         6: 'https://shop.nordstrom.com/c/mens-workout-activewear-clothing?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FActivewear&page=7&sort=CustomerRating',
 
-        7: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&sort=CustomerRating', #women active wear page 1 to 7
+        7: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&sort=CustomerRating', #women activewear page 1 to 7
         8: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=2&sort=CustomerRating',
         9: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=3&sort=CustomerRating',
         10: 'https://shop.nordstrom.com/c/womens-activewear-shop?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FActivewear&offset=3&page=4&sort=CustomerRating',
@@ -99,6 +99,49 @@ def url_link(switch_counter):
         60: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=5&sort=CustomerRating',
         61: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=6&sort=CustomerRating',
         62: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=7&sort=CustomerRating',
+        
+        63: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&sort=CustomerRating', #men pants
+        64: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=2&sort=CustomerRating'
+        65: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=3&sort=CustomerRating'
+        66: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=4&sort=CustomerRating'
+        67: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=5&sort=CustomerRating'
+
+        68: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&sort=CustomerRating' #woman pants/leggings
+        69: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=2&sort=CustomerRating'
+        70: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=3&sort=CustomerRating'
+        71: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=4&sort=CustomerRating'
+        72: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=5&sort=CustomerRating'
+
+        73: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&sort=CustomerRating'  # men polo shirts
+        74: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=2&sort=CustomerRating'
+        75: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=3&sort=CustomerRating'
+        76: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=4&sort=CustomerRating'
+        77: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=5&sort=CustomerRating'
+
+        78: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&sort=CustomerRating' # men tshirts/tanktops
+        79: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=2&sort=CustomerRating'
+        80: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=3&sort=CustomerRating'
+        81: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=4&sort=CustomerRating'
+        82: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=5&sort=CustomerRating'
+
+        83: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&sort=CustomerRating' # woman tops
+        84: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=2&sort=CustomerRating'
+        85: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=3&sort=CustomerRating'
+        86: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=4&sort=CustomerRating'
+        87: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=5&sort=CustomerRating'
+
+        88: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&sort=CustomerRating' # men shorts
+        89: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=2&sort=CustomerRating'
+        90: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=3&sort=CustomerRating'
+        91: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=4&sort=CustomerRating'
+        92: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=5&sort=CustomerRating'
+
+        93: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&sort=CustomerRating' # woman shorts
+        94: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=2&sort=CustomerRating'
+        95: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=3&sort=CustomerRating'
+        96: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=4&sort=CustomerRating'
+        97: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=5&sort=CustomerRating'
+
     }
     return switcher.get(switch_counter, "Invalid link")
 
@@ -144,9 +187,17 @@ while switch_counter < 63: #switch_counter < (number of url links)
                     elif switch_counter >= 35 and switch_counter<=41:
                         product_category = "DRESSES"
                     elif switch_counter >= 42 and switch_counter<=48:
-                        product_category = "SHIRTS"
+                        product_category = "DRESS SHIRTS"
                     elif switch_counter >= 49 and switch_counter<=62:
                         product_category = "JEANS/DENIM"
+                    elif switch_counter >= 63 and switch_counter<=72:
+                        product_category = "PANTS"
+                    elif switch_counter >= 73 and switch_counter<=77:
+                        product_category = "POLO SHIRTS"
+                    elif switch_counter >= 78 and switch_counter<=87:
+                        product_category = "TOPS/TSHIRTS/TANKTOPS"
+                    elif switch_counter >= 88 and switch_counter<=97:
+                        product_category = "SHORTS"
                     else:
                         product_category = "NOT AVAILABLE"
 
