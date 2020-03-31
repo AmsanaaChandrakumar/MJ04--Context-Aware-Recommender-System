@@ -15,7 +15,7 @@ def getWeather(temperature = 15, precipitation = 'rain'):
         weatherLabel = "coldsnow"
     elif temperature > 0 and temperature <10 and precipitation == 'clear sky' or precipitation == 'few clouds' or precipitation == 'scattered clouds' or precipitation == 'broken clouds' or precipitation == 'overcast clouds':
         weatherLabel = "chillydry"
-    elif temperature > 0 and temperature <10 and precipitation == 'rain' or precipitation == 'shower rain' or precipitation == 'thunderstorm' or precipitation == 'mist':
+    elif temperature > 0 and temperature <10 and precipitation == 'rain' or precipitation == 'shower rain' or precipitation == 'thunderstorm' or precipitation == 'mist' or precipitation == 'light intensity drizzle':
         weatherLabel = "chillyrain"
     elif temperature > 0 and temperature <10 and precipitation == 'snow':
         weatherLabel = "chillysnow"
