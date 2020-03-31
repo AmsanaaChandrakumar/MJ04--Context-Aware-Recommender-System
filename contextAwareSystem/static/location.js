@@ -62,16 +62,18 @@ var latlng = new google.maps.LatLng(lat, lng);
       }).then(function (text) {
         var weatherData = JSON.parse(text)
         var temperature = weatherData.main.temp;
+        var description = weatherData.weather[0].description;
         document.getElementById("temperature").innerHTML = Math.round(temperature) + "&#8451";
         console.log('Temperature: ');
-        console.log(weatherData.main.temp);
+        console.log(temperature);
         console.log('Wind Speed: ');
         console.log(weatherData.wind.speed);
         console.log('Description: ');
-        console.log(weatherData.weather[0].description);
+        console.log(description);
         document.getElementById("svg-img").src = "static/img/" + weatherData.weather[0].icon + ".svg";
         console.log('Icon: ');
         console.log(weatherData.weather[0].icon);
+        sendDataToFlask(temperature, description);
       });
 
       } else {
@@ -82,4 +84,18 @@ var latlng = new google.maps.LatLng(lat, lng);
     }
   });
 }
+
+function sendDataToFlask (temperature, description) {
+  fetch('/recommendation', {
+        method: 'POST',
+        body: JSON.stringify({
+          "temperature": temperature,
+          "precipitation": description
+        })
+      }).then(function (response) {
+        return response.text();
+      }).then(function (text) {
+        console.log("weather data sent to falsk!!!");
+      });
+} 
 
