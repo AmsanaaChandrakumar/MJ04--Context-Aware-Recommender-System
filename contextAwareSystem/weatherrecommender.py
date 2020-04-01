@@ -6,27 +6,27 @@ from pandas.io.json import json_normalize
 ##weather labels: cold, chilly, warm, hot
 ##precipitation labels: dry, rain, snow
 
-def getWeather(temperature = 15, precipitation = 'Clouds'):
-    if temperature <= 0 and precipitation == 'Clear' or precipitation == 'Clouds':
+def getWeather(temperature = -1, precipitation = "Thunderstorm"):
+    if temperature <= 0 and (precipitation == "Clear" or precipitation == "Clouds"):
         weatherLabel = "colddry"
-    elif temperature <= 0 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
+    elif temperature <= 0 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
         weatherLabel = "coldrain"
-    elif temperature <= 0 and precipitation == 'Snow':
+    elif temperature <= 0 and precipitation == "Snow":
         weatherLabel = "coldsnow"
-    elif temperature > 0 and temperature <10 and precipitation == 'Clear' or precipitation == 'Clouds':
+    elif temperature > 0 and temperature <10 and (precipitation == "Clear" or precipitation == "Clouds"):
         weatherLabel = "chillydry"
-    elif temperature > 0 and temperature <10 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
+    elif temperature > 0 and temperature <10 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
         weatherLabel = "chillyrain"
-    elif temperature > 0 and temperature <10 and precipitation == 'Snow':
+    elif temperature > 0 and temperature <10 and precipitation == "Snow":
         weatherLabel = "chillysnow"
-    elif temperature >=10 and temperature <20 and precipitation == 'Clear' or precipitation == 'Clouds':
+    elif temperature >=10 and temperature <20 and (precipitation == "Clear" or precipitation == "Clouds"):
         weatherLabel = "warmdry"
-    elif temperature >=10 and temperature <20 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
+    elif temperature >=10 and temperature <20 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
         weatherLabel = "warmrain"
-    elif temperature >=20 and precipitation == 'Clear' or precipitation == 'Clouds':
+    elif temperature >20 and (precipitation == "Clear" or precipitation == "Clouds"):
         weatherLabel = "hotdry"
     else: 
-        weatherLabel = "hotrain"
+        weatherLabel = "warmrain"
 
     return weatherLabel
 
