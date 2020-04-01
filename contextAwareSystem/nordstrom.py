@@ -10,7 +10,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
+
 startTime = datetime.now()
+print ("execution started at: ")+str(startTime)
 
 
 # Harold driver
@@ -101,46 +103,70 @@ def url_link(switch_counter):
         62: 'https://shop.nordstrom.com/c/mens-jeans?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FJeans&offset=10&page=7&sort=CustomerRating',
         
         63: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&sort=CustomerRating', #men pants
-        64: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=2&sort=CustomerRating'
-        65: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=3&sort=CustomerRating'
-        66: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=4&sort=CustomerRating'
-        67: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=5&sort=CustomerRating'
+        64: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=2&sort=CustomerRating',
+        65: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=3&sort=CustomerRating',
+        66: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=4&sort=CustomerRating',
+        67: 'https://shop.nordstrom.com/c/mens-pants?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPants&page=5&sort=CustomerRating',
 
-        68: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&sort=CustomerRating' #woman pants/leggings
-        69: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=2&sort=CustomerRating'
-        70: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=3&sort=CustomerRating'
-        71: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=4&sort=CustomerRating'
-        72: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=5&sort=CustomerRating'
+        68: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&sort=CustomerRating', #woman pants/leggings
+        69: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=2&sort=CustomerRating',
+        70: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=3&sort=CustomerRating',
+        71: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=4&sort=CustomerRating',
+        72: 'https://shop.nordstrom.com/c/womens-pants?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fPants+%26+Leggings&page=5&sort=CustomerRating',
 
-        73: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&sort=CustomerRating'  # men polo shirts
-        74: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=2&sort=CustomerRating'
-        75: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=3&sort=CustomerRating'
-        76: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=4&sort=CustomerRating'
-        77: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=5&sort=CustomerRating'
+        73: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&sort=CustomerRating',  # men polo shirts
+        74: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=2&sort=CustomerRating',
+        75: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=3&sort=CustomerRating',
+        76: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=4&sort=CustomerRating',
+        77: 'https://shop.nordstrom.com/c/mens-polo-shirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FPolo+Shirts&page=5&sort=CustomerRating',
 
-        78: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&sort=CustomerRating' # men tshirts/tanktops
-        79: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=2&sort=CustomerRating'
-        80: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=3&sort=CustomerRating'
-        81: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=4&sort=CustomerRating'
-        82: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=5&sort=CustomerRating'
+        78: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&sort=CustomerRating', # men tshirts/tanktops
+        79: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=2&sort=CustomerRating',
+        80: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=3&sort=CustomerRating',
+        81: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=4&sort=CustomerRating',
+        82: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FT-Shirts+%26+Tank+Tops&page=5&sort=CustomerRating',
 
-        83: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&sort=CustomerRating' # woman tops
-        84: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=2&sort=CustomerRating'
-        85: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=3&sort=CustomerRating'
-        86: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=4&sort=CustomerRating'
-        87: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=5&sort=CustomerRating'
+        83: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&sort=CustomerRating', # woman tops
+        84: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=2&sort=CustomerRating',
+        85: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=3&sort=CustomerRating',
+        86: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=4&sort=CustomerRating',
+        87: 'https://shop.nordstrom.com/c/womens-tops-tees?origin=topnav&breadcrumb=Home%2fWomen%2FClothing%2fTops&page=5&sort=CustomerRating',
 
-        88: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&sort=CustomerRating' # men shorts
-        89: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=2&sort=CustomerRating'
-        90: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=3&sort=CustomerRating'
-        91: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=4&sort=CustomerRating'
-        92: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=5&sort=CustomerRating'
+        88: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&sort=CustomerRating', # men shorts
+        89: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=2&sort=CustomerRating',
+        90: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=3&sort=CustomerRating',
+        91: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=4&sort=CustomerRating',
+        92: 'https://shop.nordstrom.com/c/mens-tshirts?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2fShorts&page=5&sort=CustomerRating',
 
-        93: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&sort=CustomerRating' # woman shorts
-        94: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=2&sort=CustomerRating'
-        95: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=3&sort=CustomerRating'
-        96: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=4&sort=CustomerRating'
-        97: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=5&sort=CustomerRating'
+        93: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&sort=CustomerRating', # woman shorts
+        94: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=2&sort=CustomerRating',
+        95: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=3&sort=CustomerRating',
+        96: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=4&sort=CustomerRating',
+        97: 'https://shop.nordstrom.com/c/shorts-women?origin=topnav&breadcrumb=Home%2fWomen%2fClothing%2fShorts&page=5&sort=CustomerRating',
+
+        98: 'https://shop.nordstrom.com/c/mens-sweaters?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweaters&offset=1&sort=CustomerRating', #men sweaters
+        99: 'https://shop.nordstrom.com/c/mens-sweaters?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweaters&offset=1&page=2&sort=CustomerRating',
+        100: 'https://shop.nordstrom.com/c/mens-sweaters?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweaters&offset=1&page=3&sort=CustomerRating',
+        101: 'https://shop.nordstrom.com/c/mens-sweaters?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweaters&offset=1&page=4&sort=CustomerRating',
+        102: 'https://shop.nordstrom.com/c/mens-sweaters?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweaters&offset=1&page=5&sort=CustomerRating',
+
+        103: 'https://shop.nordstrom.com/c/womens-sweaters?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweaters&offset=1&sort=CustomerRating', # women sweaters
+        104: 'https://shop.nordstrom.com/c/womens-sweaters?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweaters&offset=1&page=2&sort=CustomerRating',
+        105: 'https://shop.nordstrom.com/c/womens-sweaters?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweaters&offset=1&page=3&sort=CustomerRating',
+        106: 'https://shop.nordstrom.com/c/womens-sweaters?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweaters&offset=1&page=4&sort=CustomerRating',
+        107: 'https://shop.nordstrom.com/c/womens-sweaters?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweaters&offset=1&page=5&sort=CustomerRating',
+
+        108: 'https://shop.nordstrom.com/c/mens-sweatshirts-hoodies-fleece?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweatshirts%20%26%20Hoodies&sort=CustomerRating', # men's sweatshirts&hoodies
+        109: 'https://shop.nordstrom.com/c/mens-sweatshirts-hoodies-fleece?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=2&sort=CustomerRating',
+        110: 'https://shop.nordstrom.com/c/mens-sweatshirts-hoodies-fleece?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=3&sort=CustomerRating',
+        111: 'https://shop.nordstrom.com/c/mens-sweatshirts-hoodies-fleece?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=4&sort=CustomerRating',
+        112: 'https://shop.nordstrom.com/c/mens-sweatshirts-hoodies-fleece?origin=topnav&breadcrumb=Home%2FMen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=5&sort=CustomerRating',
+
+        113: 'https://shop.nordstrom.com/c/womens-sweatshirts-hoodies?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweatshirts%20%26%20Hoodies&sort=CustomerRating',# women's sweatshirts&hoodies
+        114: 'https://shop.nordstrom.com/c/womens-sweatshirts-hoodies?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=2&sort=CustomerRating',
+        115: 'https://shop.nordstrom.com/c/womens-sweatshirts-hoodies?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=3&sort=CustomerRating',
+        116: 'https://shop.nordstrom.com/c/womens-sweatshirts-hoodies?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=4&sort=CustomerRating',
+        117: 'https://shop.nordstrom.com/c/womens-sweatshirts-hoodies?origin=topnav&breadcrumb=Home%2FWomen%2FClothing%2FSweatshirts%20%26%20Hoodies&page=5&sort=CustomerRating',
 
     }
     return switcher.get(switch_counter, "Invalid link")
@@ -157,14 +183,14 @@ def ratings_json(rating):
             return float(rating[:1])
 
 
-while switch_counter < 63: #switch_counter < (number of url links)
+while switch_counter < 118: #switch_counter < (number of url links)
 
         r = 0
         j=0
         driver.get(url_link(switch_counter))
         print("loading page...")
         try:
-            wait = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'dialog-description')))
+            wait = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, 'dialog-description')))
             print("page is ready")
         except TimeoutException:
             print("loading took too long!")
@@ -198,6 +224,10 @@ while switch_counter < 63: #switch_counter < (number of url links)
                         product_category = "TOPS/TSHIRTS/TANKTOPS"
                     elif switch_counter >= 88 and switch_counter<=97:
                         product_category = "SHORTS"
+                    elif switch_counter >= 98 and switch_counter<=107:
+                        product_category = "SWEATERS"
+                    elif switch_counter >=108  and switch_counter<=117:
+                        product_category = "SWEATSHIRTS/HOODIES"
                     else:
                         product_category = "NOT AVAILABLE"
 
@@ -283,7 +313,7 @@ while switch_counter < 63: #switch_counter < (number of url links)
                     print ("name: ") + product_name
                     print ("marked-down: ") + marked_down
                     print ("discount: ")+str(discount_percent)
-                    print ("price: ") + str(product_price)[:5]
+                    print ("price: ") + str(product_price)[:6]
                     print ("rating: ") + str(rating)
                     print ("reviews: ") + str(number_of_reviews)
                     print ("link: ") + product_link
@@ -293,7 +323,7 @@ while switch_counter < 63: #switch_counter < (number of url links)
                     if product_price == 0:
                         product_price_json = 0
                     else:
-                        product_price_json = product_price[:5]
+                        product_price_json = product_price[:6]
 
                     dataDict = {
                             "product_id":str(product_id),
