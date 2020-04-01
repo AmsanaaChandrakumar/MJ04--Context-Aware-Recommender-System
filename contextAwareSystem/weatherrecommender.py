@@ -7,53 +7,64 @@ from pandas.io.json import json_normalize
 ##precipitation labels: dry, rain, snow
 
 def getWeather(temperature = 15, precipitation = 'rain'):
-    if temperature <= 0 and precipitation == 'clear sky' or precipitation == 'few clouds' or precipitation == 'scattered clouds' or precipitation == 'broken clouds':
+    if temperature <= 0 and precipitation == 'Clear' or precipitation == 'Clouds':
         weatherLabel = "colddry"
-    elif temperature <= 0 and precipitation == 'rain' or precipitation == 'shower rain' or precipitation == 'thunderstorm' or precipitation == 'mist':
+    elif temperature <= 0 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
         weatherLabel = "coldrain"
-    elif temperature <= 0 and precipitation == 'snow':
+    elif temperature <= 0 and precipitation == 'Snow':
         weatherLabel = "coldsnow"
-    elif temperature > 0 and temperature <10 and precipitation == 'clear sky' or precipitation == 'few clouds' or precipitation == 'scattered clouds' or precipitation == 'broken clouds' or precipitation == 'overcast clouds':
+    elif temperature > 0 and temperature <10 and precipitation == 'Clear' or precipitation == 'Clouds':
         weatherLabel = "chillydry"
-    elif temperature > 0 and temperature <10 and precipitation == 'rain' or precipitation == 'shower rain' or precipitation == 'thunderstorm' or precipitation == 'mist' or precipitation == 'light intensity drizzle':
+    elif temperature > 0 and temperature <10 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
         weatherLabel = "chillyrain"
-    elif temperature > 0 and temperature <10 and precipitation == 'snow':
+    elif temperature > 0 and temperature <10 and precipitation == 'Snow':
         weatherLabel = "chillysnow"
-    elif temperature >=10 and temperature <20 and precipitation == 'clear sky' or precipitation == 'few clouds' or precipitation == 'scattered clouds' or precipitation == 'broken clouds':
+    elif temperature >=10 and temperature <20 and precipitation == 'Clear' or precipitation == 'Clouds':
         weatherLabel = "warmdry"
-    elif temperature >=10 and temperature <20 and precipitation == 'rain' or precipitation == 'shower rain' or precipitation == 'thunderstorm' or precipitation == 'mist':
+    elif temperature >=10 and temperature <20 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
         weatherLabel = "warmrain"
-    elif temperature >=20 and precipitation == 'clear sky' or precipitation == 'few clouds' or precipitation == 'scattered clouds' or precipitation == 'broken clouds':
+    elif temperature >=20 and precipitation == 'Clear' or precipitation == 'Clouds':
         weatherLabel = "hotdry"
     else: 
-        weatherLabel = "warmrain"
+        weatherLabel = "hotrain"
 
     return weatherLabel
+
 
 
 def sortclothes():
     getWeather()
 
     if getWeather() is "colddry": 
-        print(sort_colddry1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_colddry[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_colddry)
     elif getWeather() is "coldrain": 
-        print(sort_coldrain1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_coldrain[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_coldrain)
     elif getWeather() is "coldsnow": 
-        print(sort_coldsnow1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_coldsnow[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_coldsnow)
     elif getWeather() is "chillydry": 
-        print(sort_chillydry1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_chillydry[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_chillydry)
     elif getWeather() is "chillyrain": 
-        print(sort_chillyrain1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_chillyrain[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_chillyrain)
     elif getWeather() is "chillysnow": 
-        print(sort_chillysnow1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_chillysnow[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_chillysnow)
     elif getWeather() is "warmdry": 
-        print(sort_warmdry1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_warmdry[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_warmdry)
     elif getWeather() is "warmrain": 
-        print(sort_warmrain1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_warmrain[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(sort_warmrain)
     elif getWeather() is "hotdry": 
-        print(sort_hotdry[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']]) 
+        #print(sort_hotdry[['category','gender', 'name', 'weighted_rating', 'weighted_discount']]) 
+        print(sort_hotdry)
     elif getWeather() is "hotrain": 
-        print(sort_warmrain1[['name','gender', 'product_id', 'discount_percent', 'rating', 'reviews']])
+        #print(sort_warmrain[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
+        print(hotrain)
 
 #load the json file 
 with open('nordstrom.json')  as f: 
@@ -77,84 +88,91 @@ discount_percent = df['discount_percent']
 
 p = 0.7
 df['weighted_discount'] = (p*(weighted_rating)) + (5*(1-p))*(1-(np.exp(((-discount_percent)/20))))
-#extract each different type of clothing from the dataset
-colddry = df[df.name.str.contains('hoodie| pullover| joggers| jacket| sweatshirt',case=False)]
-coldrain = df[df.name.str.contains('hoodie| pullover| joggers| jacket| sweatshirt',case=False)]
-coldsnow= df[df.name.str.contains('hoodie| pullover| joggers| jacket| sweatshirt',case=False)]
-chillydry= df[df.name.str.contains('hoodie| sweatshirt| vest| long sleeve| pants',case=False)]
-chillyrain= df[df.name.str.contains('hoodie| sweatshirt| vest| long sleeve| pants',case=False)]
-chillysnow= df[df.name.str.contains('hoodie| jacket| sweatshirt| vest| long sleeve| pants',case=False)]
-warmdry= df[df.name.str.contains('tights| vest| shorts| polo| top| pants',case=False)]
-warmrain = df[df.name.str.contains('tights| vest| shorts| polo| top| pants',case=False)]
-hotdry= df[df.name.str.contains('tights| vest| shorts| polo| top| t-shirt',case=False)]
-hotrain= df[df.name.str.contains('tights| vest| shorts| polo| top| t-shirt',case=False)]
 
+#sort by weighted_discount followed by price
+df = df.sort_values(by = ['weighted_discount', 'price'], ascending = [False, True])
 
-#Sort clothes according to desired parameters
-sort_colddry = colddry.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_coldrain = coldrain.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_coldsnow = coldsnow.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_chillydry = chillydry.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_chillyrain = chillyrain.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_chillysnow = chillysnow.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_warmdry = warmdry.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_warmrain = warmrain.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_hotdry = hotdry.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
-sort_hotrain = hotrain.sort_values(by= ['weighted_discount', 'price'], ascending = [False, True])
+#get rid of items that have duplicate names, only keeping the first one i.e. the best of the duplicates
+df = df.drop_duplicates(subset = ['name'])
+#get rid of items with the word "nursing" or "maternity" in them since we dont want to recommend maternity dresses
+df = df[~df.name.str.contains("nursing|maternity", case = False)]
 
-#GET 3 MALE 3 FEMALE
-colddrymale = (sort_colddry[sort_colddry['gender'].isin(['MALE'])]).head(3)
-colddryfemale = (sort_colddry[sort_colddry['gender'].isin(['FEMALE'])]).head(3)
-sort_colddry1 = pd.concat([colddrymale, colddryfemale])
+#assign clothing categories to weather labels 
+colddry = df[df.category.str.contains('hoodie| sweaters|jeans|pants|blazers|coats',case=False)]
+coldrain = df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
+coldsnow= df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
+chillydry= df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
+chillyrain= df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
+chillysnow= df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
+warmdry= df[df.category.str.contains('shorts|polo|jeans| hoodie| t-shirt| dress |romper|top|sweater',case=False)]
+warmrain = df[df.category.str.contains('shorts|polo|jeans| hoodie| t-shirt|dress|romper|top|sweater ',case=False)]
+hotdry= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|top|swimsuit',case=False)]
+hotrain= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|top|swimsuit',case=False)]
 
-coldrainmale = (sort_coldrain[sort_coldrain['gender'].isin(['MALE'])]).head(3)
-coldrainfemale = (sort_coldrain[sort_coldrain['gender'].isin(['FEMALE'])]).head(3)
-sort_coldrain1 = pd.concat([coldrainmale, coldrainfemale])
+#GET 3 MALE 3 FEMALE DISTINCT ITEMS for each weather label
+#COLDDRY
+colddrymale = colddry[colddry['gender'].isin(['MALE'])]
+colddrymale = colddrymale.drop_duplicates(subset = ['category'])
+colddryfemale = (colddry[colddry['gender'].isin(['FEMALE'])])
+colddryfemale = colddryfemale.drop_duplicates(subset = ['category'])
+sort_colddry = pd.concat([colddrymale.head(3), colddryfemale.head(3)])
 
-coldsnowmale = (sort_coldsnow[sort_coldsnow['gender'].isin(['MALE'])]).head(3)
-coldsnowfemale = (sort_coldsnow[sort_coldsnow['gender'].isin(['FEMALE'])]).head(3)
-sort_coldsnow1 = pd.concat([coldsnowmale, coldsnowfemale])
+#COLDRAIN
+coldrainmale = coldrain[coldrain['gender'].isin(['MALE'])]
+coldrainmale = coldrainmale.drop_duplicates(subset = ['category'])
+coldrainfemale = (coldrain[coldrain['gender'].isin(['FEMALE'])])
+coldrainfemale = coldrainfemale.drop_duplicates(subset = ['category'])
+sort_coldrain = pd.concat([coldrainmale.head(3), coldrainfemale.head(3)])
 
-chillydrymale = (sort_chillydry[sort_chillydry['gender'].isin(['MALE'])]).head(3)
-chillydryfemale = (sort_chillydry[sort_chillydry['gender'].isin(['FEMALE'])]).head(3)
-sort_chillydry1 = pd.concat([chillydrymale, chillydryfemale])
+#COLDSNOW
+coldsnowmale = coldsnow[coldsnow['gender'].isin(['MALE'])]
+coldsnowmale = coldsnowmale.drop_duplicates(subset = ['category'])
+coldsnowfemale = (coldsnow[coldsnow['gender'].isin(['FEMALE'])])
+coldsnowfemale = coldsnowfemale.drop_duplicates(subset = ['category'])
+sort_coldsnow = pd.concat([coldsnowmale.head(3), coldsnowfemale.head(3)])
+#CHILLYDRY
+chillydrymale = chillydry[chillydry['gender'].isin(['MALE'])]
+chillydrymale = chillydrymale.drop_duplicates(subset = ['category'])
+chillydryfemale = (chillydry[chillydry['gender'].isin(['FEMALE'])])
+chillydryfemale = chillydryfemale.drop_duplicates(subset = ['category'])
+sort_chillydry = pd.concat([chillydrymale.head(3), chillydryfemale.head(3)])
+#Chillyrain
+chillyrainmale = chillyrain[chillyrain['gender'].isin(['MALE'])]
+chillyrainmale = chillyrainmale.drop_duplicates(subset = ['category'])
+chillyrainfemale = (chillyrain[chillyrain['gender'].isin(['FEMALE'])])
+chillyrainfemale = chillyrainfemale.drop_duplicates(subset = ['category'])
+sort_chillyrain = pd.concat([chillyrainmale.head(3), chillyrainfemale.head(3)])
+#chillysnow
+chillysnowmale = chillysnow[chillysnow['gender'].isin(['MALE'])]
+chillysnowmale = chillysnowmale.drop_duplicates(subset = ['category'])
+chillysnowfemale = (chillysnow[chillysnow['gender'].isin(['FEMALE'])])
+chillysnowfemale = chillysnowfemale.drop_duplicates(subset = ['category'])
+sort_chillysnow = pd.concat([chillysnowmale.head(3), chillysnowfemale.head(3)])
+#warmdry
+warmdrymale = warmdry[warmdry['gender'].isin(['MALE'])]
+warmdrymale = warmdrymale.drop_duplicates(subset = ['category'])
+warmdryfemale = (warmdry[warmdry['gender'].isin(['FEMALE'])])
+warmdryfemale = warmdryfemale.drop_duplicates(subset = ['category'])
+sort_warmdry = pd.concat([warmdrymale.head(3), warmdryfemale.head(3)])
+#warmrain
+warmrainmale = warmrain[warmrain['gender'].isin(['MALE'])]
+warmrainmale = warmrainmale.drop_duplicates(subset = ['category'])
+warmrainfemale = (warmrain[warmrain['gender'].isin(['FEMALE'])])
+warmrainfemale = warmrainfemale.drop_duplicates(subset = ['category'])
+sort_warmrain = pd.concat([warmrainmale.head(3), warmrainfemale.head(3)])
+#hotdry
+hotdrymale = hotdry[hotdry['gender'].isin(['MALE'])]
+hotdrymale = hotdrymale.drop_duplicates(subset = ['category'])
+hotdryfemale = (hotdry[hotdry['gender'].isin(['FEMALE'])])
+hotdryfemale = hotdryfemale.drop_duplicates(subset = ['category'])
+sort_hotdry = pd.concat([hotdrymale.head(3), hotdryfemale.head(3)])
+#hotrain
+hotrainmale = hotrain[hotrain['gender'].isin(['MALE'])]
+hotrainmale = hotrainmale.drop_duplicates(subset = ['category'])
+hotrainfemale = (hotrain[hotrain['gender'].isin(['FEMALE'])])
+hotrainfemale = hotrainfemale.drop_duplicates(subset = ['category'])
+sort_hotrain = pd.concat([hotrainmale.head(3), hotrainfemale.head(3)])
 
-chillyrainmale = (sort_chillyrain[sort_chillyrain['gender'].isin(['MALE'])]).head(3)
-chillyrainfemale = (sort_chillyrain[sort_chillyrain['gender'].isin(['FEMALE'])]).head(3)
-sort_chillyrain1 = pd.concat([chillyrainmale, chillyrainfemale])
-
-chillysnowmale = (sort_chillysnow[sort_chillysnow['gender'].isin(['MALE'])]).head(3)
-chillysnowfemale = (sort_chillysnow[sort_chillysnow['gender'].isin(['FEMALE'])]).head(3)
-sort_chillysnow1 = pd.concat([chillysnowmale, chillysnowmale])
-
-warmdrymale = (sort_warmdry[sort_warmdry['gender'].isin(['MALE'])]).head(3)
-warmdryfemale = (sort_warmdry[sort_warmdry['gender'].isin(['FEMALE'])]).head(3)
-sort_warmdry1 = pd.concat([warmdrymale, warmdryfemale])
-
-warmrainmale = (sort_warmrain[sort_warmrain['gender'].isin(['MALE'])]).head(3)
-warmrainfemale = (sort_warmrain[sort_warmrain['gender'].isin(['FEMALE'])]).head(3)
-sort_warmrain1 = pd.concat([warmrainmale, warmrainfemale])
-
-hotdrymale = (sort_hotdry[sort_hotdry['gender'].isin(['MALE'])]).head(3)
-hotdryfemale = (sort_hotdry[sort_hotdry['gender'].isin(['FEMALE'])]).head(3)
-sort_hotdry1 = pd.concat([hotdrymale, hotdryfemale])
-
-hotrainmale = (sort_hotrain[sort_hotrain['gender'].isin(['MALE'])]).head(3)
-hotrainfemale = (sort_hotrain[sort_hotrain['gender'].isin(['FEMALE'])]).head(3)
-sort_hotrain1 = pd.concat([hotrainmale, hotrainfemale])
-
-
-#get top 6 items per weather condition
-# top5colddry = sort_colddry1
-# top5coldrain = sort_coldrain1
-# top5coldsnow = sort_coldsnow1
-# top5chillydry = sort_chillydry1
-# top5chillyrain = sort_chillyrain1
-# top5chillysnow = sort_chillysnow1
-# top5warmdry = sort_warmdry1
-# top5warmrain = sort_warmrain
-# top5hotdry = sort_hotdry1
-# top5warmrain = sort_hotrain1
 
 print("The current weather condition is: " + getWeather())
 sortclothes()
