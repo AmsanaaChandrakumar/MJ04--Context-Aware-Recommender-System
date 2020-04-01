@@ -6,7 +6,7 @@ from pandas.io.json import json_normalize
 ##weather labels: cold, chilly, warm, hot
 ##precipitation labels: dry, rain, snow
 
-def getWeather(temperature = 15, precipitation = 'rain'):
+def getWeather(temperature = 15, precipitation = 'Clouds'):
     if temperature <= 0 and precipitation == 'Clear' or precipitation == 'Clouds':
         weatherLabel = "colddry"
     elif temperature <= 0 and precipitation == 'Rain' or precipitation == 'Drizzle' or precipitation == 'Thunderstorm' or precipitation == 'Mist' or precipitation == 'Fog':
