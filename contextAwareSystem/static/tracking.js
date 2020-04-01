@@ -41,5 +41,9 @@ var visitNum = findCookie("visitNumber");
 var visitNumInt = parseInt(visitNum);
 var updatedVisitNum = visitNumInt + 1;
 
+if (visitNumInt > 0) {
+  document.getElementById("recommendation").innerHTML = "Our recommendations especially for you";
+}
+
 updateVisitCookie(updatedVisitNum);
 checkCookie()

@@ -50,7 +50,7 @@ var latlng = new google.maps.LatLng(lat, lng);
         }
       }
       //city name
-      document.getElementById("location").innerHTML = "Trending in " + city.long_name;
+      document.getElementById("location").innerHTML = city.long_name;
 
       fetch('/cityWeather', {
         method: 'POST',
@@ -68,8 +68,10 @@ var latlng = new google.maps.LatLng(lat, lng);
         console.log(temperature);
         console.log('Wind Speed: ');
         console.log(weatherData.wind.speed);
-        console.log('Description: ');
+        console.log('Main: ');
         console.log(description);
+        console.log('Description: ');
+        console.log(weatherData.weather[0].description);
         document.getElementById("svg-img").src = "static/img/" + weatherData.weather[0].icon + ".svg";
         console.log('Icon: ');
         console.log(weatherData.weather[0].icon);
