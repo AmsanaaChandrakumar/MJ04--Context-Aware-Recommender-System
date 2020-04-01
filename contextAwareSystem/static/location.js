@@ -62,7 +62,7 @@ var latlng = new google.maps.LatLng(lat, lng);
       }).then(function (text) {
         var weatherData = JSON.parse(text)
         var temperature = weatherData.main.temp;
-        var description = weatherData.weather[0].description;
+        var description = weatherData.weather[0].main;
         document.getElementById("temperature").innerHTML = Math.round(temperature) + "&#8451";
         console.log('Temperature: ');
         console.log(temperature);
