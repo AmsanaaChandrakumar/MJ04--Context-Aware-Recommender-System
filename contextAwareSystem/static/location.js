@@ -3,7 +3,7 @@ var geocoder;
 initialize()
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-} 
+}
 //Get the latitude and the longitude;
 function successFunction(position) {
     var lat = position.coords.latitude;
@@ -16,19 +16,7 @@ function errorFunction(){
 }
 
 function initialize() {
-// fetch('/googleMaps')
-//     .then(function (response) {
-//         return response.text();
-//     }).then(function (googleAPI) {
-//         console.log('google maps:');
-//         console.log(googleAPI);
-
-//         var script = document.createElement('script');
-//         script.src = googleAPI;
-//     });
-
 	geocoder = new google.maps.Geocoder();
-	console.log("in tuna2")
 }
 
 function codeLatLng(lat, lng) {
@@ -97,7 +85,12 @@ function sendDataToFlask (temperature, description) {
       }).then(function (response) {
         return response.text();
       }).then(function (text) {
-        console.log("weather data sent to falsk!!!");
+        var recommendationData = JSON.parse(text);
+        console.log(recommendationData);
+
+        for (var items = 0; items < Object.keys(recommendationData).length; items++) {
+          document.getElementById("img"+items).src = recommendationData[items].img;
+        }
       });
 } 
 
