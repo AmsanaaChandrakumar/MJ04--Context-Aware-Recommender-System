@@ -47,29 +47,37 @@ def cityWeather():
 def getWeather():
     if request.method == 'POST':
         jsonData = request.get_json(force=True)
-        temperature = int(jsonData.get('temperature'))
+        temperature = jsonData.get('temperature')
         precipitation = str(jsonData.get('precipitation'))
-        if temperature <= 0 and (precipitation == "Clear" or precipitation == "Clouds"):
-            weatherLabel = "colddry"
-        elif temperature <= 0 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-            weatherLabel = "coldrain"
-        elif temperature <= 0 and precipitation == "Snow":
-            weatherLabel = "coldsnow"
-        elif temperature > 0 and temperature <10 and (precipitation == "Clear" or precipitation == "Clouds"):
-            weatherLabel = "chillydry"
-        elif temperature > 0 and temperature <10 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-            weatherLabel = "chillyrain"
-        elif temperature > 0 and temperature <10 and precipitation == "Snow":
-            weatherLabel = "chillysnow"
-        elif temperature >=10 and temperature <20 and (precipitation == "Clear" or precipitation == "Clouds"):
-            weatherLabel = "warmdry"
-        elif temperature >=10 and temperature <20 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-            weatherLabel = "warmrain"
-        elif temperature >20 and (precipitation == "Clear" or precipitation == "Clouds"):
-            weatherLabel = "hotdry"
-        else: 
-            weatherLabel = "warmrain"
 
+        if temperature == "none":
+            weatherLabel = "weathernotfound"
+        else:
+            temperature = int(temperature)
+
+        if isinstance(temperature, (int, float)):
+            if temperature <= 0 and (precipitation == "Clear" or precipitation == "Clouds"):
+                weatherLabel = "colddry"
+            elif temperature <= 0 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+                weatherLabel = "coldrain"
+            elif temperature <= 0 and precipitation == "Snow":
+                weatherLabel = "coldsnow"
+            elif temperature > 0 and temperature <18 and (precipitation == "Clear" or precipitation == "Clouds"):
+                weatherLabel = "chillydry"
+            elif temperature > 0 and temperature <18 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+                weatherLabel = "chillyrain"
+            elif temperature > 0 and temperature <18 and precipitation == "Snow":
+                weatherLabel = "chillysnow"
+            elif temperature >=18 and temperature <25 and (precipitation == "Clear" or precipitation == "Clouds"):
+                weatherLabel = "warmdry"
+            elif temperature >=18 and temperature <25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+                weatherLabel = "warmrain"
+            elif temperature >25 and (precipitation == "Clear" or precipitation == "Clouds"):
+                weatherLabel = "hotdry"
+            elif temperature > 25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+                weatherLabel = "hotrain"
+
+        print(weatherLabel)    
         SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
         json_url = os.path.join(SITE_ROOT, "nordstrom.json")
         nordsdata = json.load(open(json_url))
@@ -183,6 +191,14 @@ def getWeather():
             sort_hotrain = pd.concat([hotrainmale.head(3), hotrainfemale.head(3)])
 
             return sort_hotrain.to_json(orient='records')
+        elif weatherLabel == "weathernotfound":
+            noweathermale = df.drop_duplicates(subset = ['category'])
+            noweathermale = df[df['gender'].isin(['MALE'])]
+            noweatherfemale = (df[df['gender'].isin(['FEMALE'])])
+            noweatherfemale = df.drop_duplicates(subset = ['category'])
+            sort_noweather = pd.concat([noweathermale.head(3), noweatherfemale.head(3)])
+
+            return sort_noweather.to_json(orient='records')
 
 
 # @app.route('/googleMaps', methods=['GET', 'POST'])

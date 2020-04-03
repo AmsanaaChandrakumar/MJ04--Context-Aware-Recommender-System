@@ -13,6 +13,7 @@ function successFunction(position) {
 
 function errorFunction(){
 	alert("Geocoder failed");
+  sendDataToFlask("none", "none");
 }
 
 function initialize() {
