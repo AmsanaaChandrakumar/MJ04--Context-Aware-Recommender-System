@@ -76,8 +76,7 @@ def getWeather():
                 weatherLabel = "hotdry"
             elif temperature > 25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
                 weatherLabel = "hotrain"
-
-        print(weatherLabel)    
+  
         SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
         json_url = os.path.join(SITE_ROOT, "nordstrom.json")
         nordsdata = json.load(open(json_url))

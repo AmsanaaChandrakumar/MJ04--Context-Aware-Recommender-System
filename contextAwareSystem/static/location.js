@@ -91,6 +91,8 @@ function sendDataToFlask (temperature, description) {
 
         for (var items = 0; items < Object.keys(recommendationData).length; items++) {
           document.getElementById("img"+items).src = recommendationData[items].img;
+          document.getElementById("name"+items).innerHTML = recommendationData[items].name + "<br>($" + recommendationData[items].price + ")";
+          document.getElementById("name"+items).href = recommendationData[items].link;
         }
       });
 } 
