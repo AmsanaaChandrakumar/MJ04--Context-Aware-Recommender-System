@@ -6,27 +6,31 @@ from pandas.io.json import json_normalize
 ##weather labels: cold, chilly, warm, hot
 ##precipitation labels: dry, rain, snow
 
-def getWeather(temperature = 13, precipitation = "Clear"):
-    if temperature <= 0 and (precipitation == "Clear" or precipitation == "Clouds"):
-        weatherLabel = "colddry"
-    elif temperature <= 0 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-        weatherLabel = "coldrain"
-    elif temperature <= 0 and precipitation == "Snow":
-        weatherLabel = "coldsnow"
-    elif temperature > 0 and temperature <18 and (precipitation == "Clear" or precipitation == "Clouds"):
-        weatherLabel = "chillydry"
-    elif temperature > 0 and temperature <18 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-        weatherLabel = "chillyrain"
-    elif temperature > 0 and temperature <18 and precipitation == "Snow":
-        weatherLabel = "chillysnow"
-    elif temperature >=18 and temperature <25 and (precipitation == "Clear" or precipitation == "Clouds"):
-        weatherLabel = "warmdry"
-    elif temperature >=18 and temperature <25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
-        weatherLabel = "warmrain"
-    elif temperature >25 and (precipitation == "Clear" or precipitation == "Clouds"):
-        weatherLabel = "hotdry"
-    else: 
-        weatherLabel = "hotrain"
+def getWeather(temperature = 20 , precipitation = "Clear"):
+    if isinstance(temperature, (int, float)):
+        if temperature <= 0 and (precipitation == "Clear" or precipitation == "Clouds"):
+            weatherLabel = "colddry"
+        elif temperature <= 0 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+            weatherLabel = "coldrain"
+        elif temperature <= 0 and precipitation == "Snow":
+            weatherLabel = "coldsnow"
+        elif temperature > 0 and temperature <18 and (precipitation == "Clear" or precipitation == "Clouds"):
+            weatherLabel = "chillydry"
+        elif temperature > 0 and temperature <18 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+            weatherLabel = "chillyrain"
+        elif temperature > 0 and temperature <18 and precipitation == "Snow":
+            weatherLabel = "chillysnow"
+        elif temperature >=18 and temperature <25 and (precipitation == "Clear" or precipitation == "Clouds"):
+            weatherLabel = "warmdry"
+        elif temperature >=18 and temperature <25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+            weatherLabel = "warmrain"
+        elif temperature >25 and (precipitation == "Clear" or precipitation == "Clouds"):
+            weatherLabel = "hotdry"
+        elif temperature > 25 and (precipitation == "Rain" or precipitation == "Drizzle" or precipitation == "Thunderstorm" or precipitation == "Mist" or precipitation == "Fog"):
+            weatherLabel = "hotrain"
+    else:
+        temperature = str(temperature)
+        weatherLabel = "weathernotfound"
 
     return weatherLabel
 
@@ -64,8 +68,9 @@ def sortclothes():
         print(sort_hotdry)
     elif getWeather() is "hotrain": 
         #print(sort_warmrain[['category','gender', 'name', 'weighted_rating', 'weighted_discount']])
-        print(hotrain)
-
+        print(sort_hotrain)
+    elif getWeather() is "weathernotfound": 
+        print(sort_noweather)
 #load the json file 
 with open('nordstrom.json')  as f: 
     nordsdata = json.load(f) 
@@ -110,6 +115,13 @@ hotdry= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|
 hotrain= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|top|swimsuit',case=False)]
 
 #GET 3 MALE 3 FEMALE DISTINCT ITEMS for each weather label
+#NOWEATHERDATA
+noweathermale = df.drop_duplicates(subset = ['category'])
+noweathermale = df[df['gender'].isin(['MALE'])]
+noweatherfemale = (df[df['gender'].isin(['FEMALE'])])
+noweatherfemale = df.drop_duplicates(subset = ['category'])
+sort_noweather = pd.concat([noweathermale.head(3), noweatherfemale.head(3)])
+
 #COLDDRY
 colddrymale = colddry[colddry['gender'].isin(['MALE'])]
 colddrymale = colddrymale.drop_duplicates(subset = ['category'])
