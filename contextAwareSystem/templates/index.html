@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
-<<!-- script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 <script src="{{url_for('static', filename='index.js')}}"></script>
 <!-- <script src="{{url_for('static', filename='sendData.js')}}"></script> -->
@@ -85,8 +85,14 @@
 }
 .column {
   float: left;
-  width: 20%;
+  width: 15%;
   padding: 0;
+  border-right: 2px solid #ff0000;
+}
+.column1 {
+  float: left;
+  width: 22%;
+  padding-left: 15px;
 }
 .lastcolumn{
   float:right;
@@ -133,7 +139,7 @@
            <input type="checkbox" id="gender2" name="gender2" value="Women"><label for="gender2">Women</label><br>
            <input type="checkbox" id="gender3" name="gender3" value="Unisex"><label for="gender3">Unisex</label><br><br>
           </div>
-          <div class="column">
+          <div class="column1">
            <input type="checkbox" id="cat1" name="cat1" value="Activewear"><label for="cat1">Activewear</label><br>
            <input type="checkbox" id="cat2" name="cat2" value="Blazers/Coats/Jackets"><label for="cat2">Blazers/Coats/Jackets</label><br>
            <input type="checkbox" id="cat3" name="cat3" value="Dresses"><label for="cat3">Dresses</label><br>
@@ -141,7 +147,7 @@
            <input type="checkbox" id="cat5" name="cat5" value="Jeans/Denim"><label for="cat5">Jeans/Denim</label><br>
            <input type="checkbox" id="cat6" name="cat6" value="Pants"><label for="cat6">Pants</label><br><br>
           </div> 
-          <div class="column">
+          <div class="column1">
            <input type="checkbox" id="cat7" name="cat7" value="Polo-Shirts"><label for="cat7">Polo-Shirts</label><br>
            <input type="checkbox" id="cat8" name="cat8" value="Tops/TShirts/Tanktops"><label for="cat8">Tops/TShirts/Tanktops</label><br>
            <input type="checkbox" id="cat9" name="cat9" value="Shorts"><label for="cat9">Shorts</label><br>
@@ -160,7 +166,8 @@
         </div><br><br>
         <div class="slidecontainer">
           <input type="range" min="0" max="1" value="0.5" step=".1" class="slider" id="myRange">
-          <p>Value: <span id="num"></span></p>
+            <span style="text-align:left">Rating</span><span style="float:right;">Discount</span>
+            <p>Value: <span id="num"></span></p>
             <script>
               var slider = document.getElementById("myRange");
               var output = document.getElementById("num");
@@ -244,7 +251,7 @@
       </div>
       <span class="w3-display-bottomleft w3-padding"></span>
     </div>
-    <button class="w3-button w3-padding-large w3-black">VIEW MORE</button>
+    <button class="w3-button w3-padding-large w3-black" style="margin: auto;display: block;">VIEW MORE</button>
   </div>
 
   
