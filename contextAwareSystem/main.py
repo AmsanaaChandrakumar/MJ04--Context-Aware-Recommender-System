@@ -107,7 +107,7 @@ def getWeather():
         chillysnow= df[df.category.str.contains('blazers|coats|pants |jeans|sweaters|hoodies',case=False)]
         warmdry= df[df.category.str.contains('shorts|polo|jeans| hoodie| t-shirt| dress |romper|top|sweater',case=False)]
         warmrain = df[df.category.str.contains('shorts|polo|jeans| hoodie| t-shirt|dress|romper|top|sweater ',case=False)]
-        hotdry= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|top|swimsuit',case=False)]
+        hotdry= df[df.category.str.contains('shorts|polo|tank|shirts|dress|romper|top|swimsuit',case=False)]
         hotrain= df[df.category.str.contains('shorts|polo|jeans|tank|shirts|dress|romper|top|swimsuit',case=False)]
 
         if weatherLabel == "colddry": 

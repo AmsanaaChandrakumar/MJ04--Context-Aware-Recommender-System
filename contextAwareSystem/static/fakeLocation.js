@@ -1,4 +1,4 @@
-var city = "Toronto"
+var city = "Miami"
 
 document.getElementById("location").innerHTML = city;
 
